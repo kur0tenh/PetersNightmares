@@ -114,8 +114,7 @@ public class AdministradorRecursos
     public void cargarRecursosSplash() {
         try {
             // Carga la imagen de fondo de la pantalla Splash
-            texturaSplash = new AssetBitmapTexture(actividadJuego.getTextureManager(),
-                    actividadJuego.getAssets(), "splash/logoTec.png");
+            texturaSplash = new AssetBitmapTexture(actividadJuego.getTextureManager(),actividadJuego.getAssets(), "splash/logoTec.png");
             regionSplash = TextureRegionFactory.extractFromTexture(texturaSplash);
             texturaSplash.load();
         } catch (IOException e) {
