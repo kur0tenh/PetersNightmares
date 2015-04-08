@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file:///mnt/OS/Users/kur0/Documents/AndroidStudioProjects/PetersNightmares/PetersNightmares/PetersNightmares.iml" filepath="/mnt/OS/Users/kur0/Documents/AndroidStudioProjects/PetersNightmares/PetersNightmares/PetersNightmares.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PetersNightmares.iml" filepath="$PROJECT_DIR$/PetersNightmares.iml" />
+      <module fileurl="file:///mnt/OS/Users/kur0/Documents/AndroidStudioProjects/PetersNightmares/PetersNightmares/app/app.iml" filepath="/mnt/OS/Users/kur0/Documents/AndroidStudioProjects/PetersNightmares/PetersNightmares/app/app.iml" />
+      <module fileurl="file:///mnt/OS/Users/kur0/Documents/AndroidStudioProjects/PetersNightmares/PetersNightmares/org.andengine/org.andengine.iml" filepath="/mnt/OS/Users/kur0/Documents/AndroidStudioProjects/PetersNightmares/PetersNightmares/org.andengine/org.andengine.iml" />
+    </modules>
+  </component>
+</project>
+
