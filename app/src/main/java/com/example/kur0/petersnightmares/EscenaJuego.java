@@ -1,10 +1,5 @@
 package com.example.kur0.petersnightmares;
 
-import android.content.Context;
-import android.support.v4.util.LogWriter;
-import android.util.Log;
-import android.widget.Toast;
-
 import org.andengine.engine.camera.Camera;
 import org.andengine.entity.IEntity;
 import org.andengine.entity.modifier.JumpModifier;
@@ -17,9 +12,6 @@ import org.andengine.input.touch.TouchEvent;
 import org.andengine.opengl.texture.region.TiledTextureRegion;
 import org.andengine.opengl.util.GLState;
 
-import java.lang.reflect.Array;
-import java.nio.charset.CharsetEncoder;
-import java.util.ArrayList;
 
 /**
  * Minigame 1
