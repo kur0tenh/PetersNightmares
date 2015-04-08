@@ -28,7 +28,7 @@ public class EscenaSplash extends EscenaBase
         spriteFondo.setScale(1.0f);
 
         // Crea el fondo de la pantalla
-        SpriteBackground fondo = new SpriteBackground(1,0.5f,0,spriteFondo);
+        SpriteBackground fondo = new SpriteBackground(0,0.0f,1,spriteFondo);
         setBackground(fondo);
         setBackgroundEnabled(true);
     }

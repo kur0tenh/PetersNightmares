@@ -194,7 +194,7 @@ public class AdministradorRecursos
     //*** Recursos de la pantalla de Aerca De
     public void cargarRecursosAcercaDe() {
         try {
-            // Carga la imagen de fondo de la pantalla Splash
+            // Carga la imagen de fondo de la pantalla Acerca De
             texturaFondoAcercaDe = new AssetBitmapTexture(actividadJuego.getTextureManager(),actividadJuego.getAssets(), "acercade/PeterAbout.jpg");
             regionFondoAcercaDe = TextureRegionFactory.extractFromTexture(texturaFondoAcercaDe);
             texturaFondoAcercaDe.load();
@@ -299,7 +299,7 @@ public class AdministradorRecursos
     }
     public void cargarRecursosOpciones() {
         try {
-            // Carga la imagen de fondo de la pantalla Splash
+            // Carga la imagen de fondo de la pantalla de opciones
             texturaFondoOpciones = new AssetBitmapTexture(actividadJuego.getTextureManager(),actividadJuego.getAssets(), "opciones/FondoOpciones.jpg");
             regionOpciones = TextureRegionFactory.extractFromTexture(texturaFondoOpciones);
             texturaFondoOpciones.load();
