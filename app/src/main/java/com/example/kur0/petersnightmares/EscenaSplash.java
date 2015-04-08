@@ -11,7 +11,7 @@ import org.andengine.opengl.util.GLState;
  */
 public class EscenaSplash extends EscenaBase
 {
-    private Sprite spriteFondo; //(el fondo de la escena, estático)
+    private Sprite spriteFondo; //el fondo de color de la escena
 
     @Override
     public void crearEscena() {
