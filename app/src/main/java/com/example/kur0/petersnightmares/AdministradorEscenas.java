@@ -11,7 +11,7 @@ public class AdministradorEscenas
     private static final AdministradorEscenas INSTANCE =
             new AdministradorEscenas();
 
-    // Declara las distintas escenas que forman el juego
+    // Declara las distintas escenas que forman elm juego
     private EscenaBase escenaSplash;
     private EscenaBase escenaMenu;
     private EscenaBase escenaAcercaDe;
