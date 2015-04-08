@@ -25,7 +25,7 @@ public class EscenaSplash extends EscenaBase
         };
         // Configuración de la imagen
         spriteFondo.setPosition(ControlJuego.ANCHO_CAMARA/2,ControlJuego.ALTO_CAMARA/2);
-        spriteFondo.setScale(0.7f);
+        spriteFondo.setScale(1.0f);
 
         // Crea el fondo de la pantalla
         SpriteBackground fondo = new SpriteBackground(1,0.5f,0,spriteFondo);
