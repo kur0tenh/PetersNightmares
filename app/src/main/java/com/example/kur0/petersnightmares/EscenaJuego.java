@@ -201,7 +201,12 @@ public class EscenaJuego extends EscenaBase
             float yn = ya;
             JumpModifier salto = new JumpModifier(1,xa,xn,ya,yn,-300);
 
-            peter.stopAnimation();
+            //Frame para salto
+            long tiempos[] = new long[16];
+            for(int i=0; i<tiempos.length; i++) {
+                tiempos[i] = 0;
+            }
+            peter.animate(tiempos[11],1);
             ParallelEntityModifier paralelo = new ParallelEntityModifier(salto) {
                 @Override
 
@@ -232,14 +237,6 @@ public class EscenaJuego extends EscenaBase
 
                     protected void onModifierFinished(IEntity pItem) {
 
-                        /*
-                        long tiempos[] = new long[16];
-                        for(int i=0; i<tiempos.length; i++) {
-                            tiempos[i] = 32;
-
-                        }
-                        peter.animate(tiempos,0,tiempos.length-1,true);
-                        */
                         super.onModifierFinished(pItem);
 
 
