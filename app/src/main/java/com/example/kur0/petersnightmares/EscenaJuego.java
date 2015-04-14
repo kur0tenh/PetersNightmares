@@ -200,6 +200,7 @@ public class EscenaJuego extends EscenaBase
             float xn = xa;
             float yn = ya;
             JumpModifier salto = new JumpModifier(1,xa,xn,ya,yn,-300);
+
             peter.stopAnimation();
             ParallelEntityModifier paralelo = new ParallelEntityModifier(salto) {
                 @Override
@@ -220,12 +221,37 @@ public class EscenaJuego extends EscenaBase
             peter.registerEntityModifier(paralelo);
         }else {
             if (pSceneTouchEvent.isActionDown() && x < ControlJuego.ANCHO_CAMARA / 2&& !peterSaltando && peter.getX()<=1100) {
-                dxNotRun=-40;
+                float xa = peter.getX();
+                float ya = peter.getY();
+                float xn = xa;
+                float yn = ya;
+                //JumpModifier corre = new JumpModifier(1,xa,xa+10,ya,ya,-100);
+                JumpModifier corre = new JumpModifier(0.06f,xa,xn+50,ya,ya,0);
+                ParallelEntityModifier paralelo = new ParallelEntityModifier(corre) {
+                    @Override
+
+                    protected void onModifierFinished(IEntity pItem) {
+
+                        /*
+                        long tiempos[] = new long[16];
+                        for(int i=0; i<tiempos.length; i++) {
+                            tiempos[i] = 32;
+
+                        }
+                        peter.animate(tiempos,0,tiempos.length-1,true);
+                        */
+                        super.onModifierFinished(pItem);
+
+
+                    }
+                };
+                peter.registerEntityModifier(paralelo);
             }
             else{
-                dxNotRun=5;
+
             }
         }
+
         return super.onSceneTouchEvent(pSceneTouchEvent);
     }
     // Constante para mover la barra de tiempo
