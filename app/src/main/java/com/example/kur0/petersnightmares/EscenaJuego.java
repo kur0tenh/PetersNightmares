@@ -143,16 +143,9 @@ public class EscenaJuego extends EscenaBase
 
                 if (peter.collidesWith(enemigo) ) {
                     onBackKeyPressed();
-                }/*
-                else{
-                    if(peter.getX()>=1200){
-                        dxNotRun = 30;
-                    }
                 }
-                */
             }
         };
-
         // Arreglo de tiempos para los frames
         long tiempos[] = new long[16];
         for(int i=0; i<tiempos.length; i++) {
@@ -161,7 +154,6 @@ public class EscenaJuego extends EscenaBase
         peter.animate(tiempos,0,tiempos.length-1,true);
         attachChild(peter);
     }
-
     // Background ANIMADO con varias CAPAS
     private void agregarFondoAnimado() {
         float xLejos = admRecursos.regionFondoLejos.getWidth()/2;
@@ -239,7 +231,6 @@ public class EscenaJuego extends EscenaBase
 
                         super.onModifierFinished(pItem);
 
-
                     }
                 };
                 peter.registerEntityModifier(paralelo);
@@ -295,6 +286,4 @@ public class EscenaJuego extends EscenaBase
         this.detachSelf();      // La escena misma se deconecta del engine
         this.dispose();         // Libera la memoria
     }
-
-
 }
