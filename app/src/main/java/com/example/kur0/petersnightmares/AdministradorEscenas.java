@@ -1,5 +1,7 @@
 package com.example.kur0.petersnightmares;
 
+import com.example.kur0.petersnightmares.TipoEscena;
+
 import org.andengine.engine.Engine;
 
 /**
@@ -68,7 +70,7 @@ public class AdministradorEscenas
             case ESCENA_ACERCA_DE:
                 setEscenaBase(escenaAcercaDe);
                 break;
-            case ESCENA_JUEGO:
+            case ESCENA_RUNIFUNREAL:
                 setEscenaBase(escenaJuego);
                 break;
             case ESCENA_OPCIONES:

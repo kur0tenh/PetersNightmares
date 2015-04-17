@@ -278,7 +278,7 @@ public class RunIfUnreal extends EscenaBase
 
     @Override
     public TipoEscena getTipoEscena() {
-        return TipoEscena.ESCENA_JUEGO;
+        return TipoEscena.ESCENA_RUNIFUNREAL;
     }
 
     @Override

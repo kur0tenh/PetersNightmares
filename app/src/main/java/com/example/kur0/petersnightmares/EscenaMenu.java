@@ -104,7 +104,7 @@ public class EscenaMenu extends EscenaBase
                     case OPCION_JUGAR:
                         // Mostrar la pantalla de juego
                         admEscenas.crearEscenaJuego();
-                        admEscenas.setEscena(TipoEscena.ESCENA_JUEGO);
+                        admEscenas.setEscena(TipoEscena.ESCENA_RUNIFUNREAL);
                         admEscenas.liberarEscenaMenu();
                         break;
                     default:
