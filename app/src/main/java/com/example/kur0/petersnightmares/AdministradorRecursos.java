@@ -221,19 +221,19 @@ public class AdministradorRecursos
     public void cargarRecursosJuego() {
         try {
             // *** Fondos para la animación en capas
-            texturaFondoLejos = new AssetBitmapTexture(actividadJuego.getTextureManager(),actividadJuego.getAssets(), "juego/capa0.png");
+            texturaFondoLejos = new AssetBitmapTexture(actividadJuego.getTextureManager(),actividadJuego.getAssets(), "RunIfUnreal/capa0.png");
             regionFondoLejos = TextureRegionFactory.extractFromTexture(texturaFondoLejos);
             texturaFondoLejos.load();
 
-            texturaFondoMedioMedio = new AssetBitmapTexture(actividadJuego.getTextureManager(),actividadJuego.getAssets(), "juego/capa1.png");
+            texturaFondoMedioMedio = new AssetBitmapTexture(actividadJuego.getTextureManager(),actividadJuego.getAssets(), "RunIfUnreal/capa1.png");
             regionFondoMedioMedio = TextureRegionFactory.extractFromTexture(texturaFondoMedioMedio);
             texturaFondoMedioMedio.load();
 
-            texturaFondoMedio = new AssetBitmapTexture(actividadJuego.getTextureManager(),actividadJuego.getAssets(), "juego/capa2.png");
+            texturaFondoMedio = new AssetBitmapTexture(actividadJuego.getTextureManager(),actividadJuego.getAssets(), "RunIfUnreal/capa2.png");
             regionFondoMedio = TextureRegionFactory.extractFromTexture(texturaFondoMedio);
             texturaFondoMedio.load();
 
-            texturaFondoCerca = new AssetBitmapTexture(actividadJuego.getTextureManager(),actividadJuego.getAssets(), "juego/capa3.png");
+            texturaFondoCerca = new AssetBitmapTexture(actividadJuego.getTextureManager(),actividadJuego.getAssets(), "RunIfUnreal/capa3.png");
             regionFondoCerca = TextureRegionFactory.extractFromTexture(texturaFondoCerca);
             texturaFondoCerca.load();
         } catch (IOException e) {
@@ -241,7 +241,7 @@ public class AdministradorRecursos
         }
         // Carga las imágenes para el Enemigo Animado
         texturaEnemigoAnimado = new BuildableBitmapTextureAtlas(actividadJuego.getTextureManager(),1700,720);
-        regionEnemigoAnimado = BitmapTextureAtlasTextureRegionFactory.createTiledFromAsset(texturaEnemigoAnimado, actividadJuego, "juego/EnemigoAnimado.png", 5, 2);
+        regionEnemigoAnimado = BitmapTextureAtlasTextureRegionFactory.createTiledFromAsset(texturaEnemigoAnimado, actividadJuego, "RunIfUnreal/EnemigoAnimado.png", 5, 2);
         try {
             texturaEnemigoAnimado.build(new BlackPawnTextureAtlasBuilder<IBitmapTextureAtlasSource, BitmapTextureAtlas>(0,0,0));
         } catch (ITextureAtlasBuilder.TextureAtlasBuilderException e) {
@@ -250,7 +250,7 @@ public class AdministradorRecursos
         texturaEnemigoAnimado.load();
         // Carga las imagenes para Peter corriendo Animado
         texturaPeterRunningAnimado = new BuildableBitmapTextureAtlas(actividadJuego.getTextureManager(),960,360);
-        regionPeterRunningAnimado = BitmapTextureAtlasTextureRegionFactory.createTiledFromAsset(texturaPeterRunningAnimado, actividadJuego, "juego/PeterRunning.png", 8, 2);
+        regionPeterRunningAnimado = BitmapTextureAtlasTextureRegionFactory.createTiledFromAsset(texturaPeterRunningAnimado, actividadJuego, "RunIfUnreal/PeterRunning.png", 8, 2);
         try {
             texturaPeterRunningAnimado.build(new BlackPawnTextureAtlasBuilder<IBitmapTextureAtlasSource, BitmapTextureAtlas>(0,0,0));
         } catch (ITextureAtlasBuilder.TextureAtlasBuilderException e) {
@@ -259,7 +259,7 @@ public class AdministradorRecursos
         texturaPeterRunningAnimado.load();
         // Carga el disparo del enemigo
         texturaDisparoEnemigo = new BuildableBitmapTextureAtlas(actividadJuego.getTextureManager(),270,90);
-        regionDisparoEnemigo = BitmapTextureAtlasTextureRegionFactory.createTiledFromAsset(texturaDisparoEnemigo, actividadJuego, "juego/DisparoEnemigo.png", 3, 2);        // Capas);
+        regionDisparoEnemigo = BitmapTextureAtlasTextureRegionFactory.createTiledFromAsset(texturaDisparoEnemigo, actividadJuego, "RunIfUnreal/DisparoEnemigo.png", 3, 2);        // Capas);
         try {
             texturaDisparoEnemigo.build(new BlackPawnTextureAtlasBuilder<IBitmapTextureAtlasSource, BitmapTextureAtlas>(0,0,0));
 
@@ -270,7 +270,7 @@ public class AdministradorRecursos
 
         // Carga la barra de tiempo
         try{
-            texturaBarraTiempo = new AssetBitmapTexture(actividadJuego.getTextureManager(),actividadJuego.getAssets(), "juego/BarraTiempo.png");
+            texturaBarraTiempo = new AssetBitmapTexture(actividadJuego.getTextureManager(),actividadJuego.getAssets(), "RunIfUnreal/BarraTiempo.png");
             regionBarraTiempo = TextureRegionFactory.extractFromTexture(texturaBarraTiempo);
             texturaBarraTiempo.load();
         }
