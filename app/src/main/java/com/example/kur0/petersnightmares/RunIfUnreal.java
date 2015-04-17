@@ -147,9 +147,9 @@ public class RunIfUnreal extends EscenaBase
             }
         };
         // Arreglo de tiempos para los frames
-        long tiempos[] = new long[16];
+        long tiempos[] = new long[8];
         for(int i=0; i<tiempos.length; i++) {
-            tiempos[i] = 32;
+            tiempos[i] = 48;
         }
         peter.animate(tiempos,0,tiempos.length-1,true);
         attachChild(peter);
@@ -194,20 +194,20 @@ public class RunIfUnreal extends EscenaBase
             JumpModifier salto = new JumpModifier(1,xa,xn,ya,yn,-300);
 
             //Frame para salto
-            long tiempos[] = new long[16];
+            long tiempos[] = new long[8];
             for(int i=0; i<tiempos.length; i++) {
                 tiempos[i] = 0;
             }
-            peter.animate(tiempos[11],1);
+            peter.animate(tiempos[5],1);
             ParallelEntityModifier paralelo = new ParallelEntityModifier(salto) {
                 @Override
 
                 protected void onModifierFinished(IEntity pItem) {
 
 
-                    long tiempos[] = new long[16];
+                    long tiempos[] = new long[8];
                     for(int i=0; i<tiempos.length; i++) {
-                        tiempos[i] = 32;
+                        tiempos[i] = 48;
 
                     }
                     peter.animate(tiempos,0,tiempos.length-1,true);

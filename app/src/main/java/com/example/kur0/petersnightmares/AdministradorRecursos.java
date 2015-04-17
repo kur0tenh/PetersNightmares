@@ -249,8 +249,8 @@ public class AdministradorRecursos
         }
         texturaEnemigoAnimado.load();
         // Carga las imagenes para Peter corriendo Animado
-        texturaPeterRunningAnimado = new BuildableBitmapTextureAtlas(actividadJuego.getTextureManager(),960,360);
-        regionPeterRunningAnimado = BitmapTextureAtlasTextureRegionFactory.createTiledFromAsset(texturaPeterRunningAnimado, actividadJuego, "RunIfUnreal/PeterRunning.png", 8, 2);
+        texturaPeterRunningAnimado = new BuildableBitmapTextureAtlas(actividadJuego.getTextureManager(),480,360);
+        regionPeterRunningAnimado = BitmapTextureAtlasTextureRegionFactory.createTiledFromAsset(texturaPeterRunningAnimado, actividadJuego, "RunIfUnreal/PeterRunning.png", 4, 2);
         try {
             texturaPeterRunningAnimado.build(new BlackPawnTextureAtlasBuilder<IBitmapTextureAtlasSource, BitmapTextureAtlas>(0,0,0));
         } catch (ITextureAtlasBuilder.TextureAtlasBuilderException e) {
