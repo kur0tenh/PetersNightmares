@@ -5,6 +5,7 @@ package com.example.kur0.petersnightmares;
  *
  * @author kur0
  */
+
 public enum TipoEscena {
     ESCENA_SPLASH,
     ESCENA_MENU,
