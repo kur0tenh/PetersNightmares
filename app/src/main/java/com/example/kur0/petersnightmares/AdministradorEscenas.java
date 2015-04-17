@@ -125,7 +125,7 @@ public class AdministradorEscenas
     public void crearEscenaJuego() {
         // Carga los recursos
         admRecursos.cargarRecursosJuego();
-        escenaJuego = new EscenaJuego();
+        escenaJuego = new RunIfUnreal();
     }
 
     //*** Libera la escena de JUEGO

@@ -18,7 +18,7 @@ import org.andengine.opengl.util.GLState;
  * @author kur0
  */
 
-public class EscenaJuego extends EscenaBase
+public class RunIfUnreal extends EscenaBase
 {
 
     // Fondos para la animación de capas
