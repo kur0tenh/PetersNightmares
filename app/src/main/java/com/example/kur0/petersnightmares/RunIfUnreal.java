@@ -168,7 +168,7 @@ public class RunIfUnreal extends EscenaBase
         fondoCerca = new Sprite(xCerca,yCerca,admRecursos.regionFondoCerca,admRecursos.vbom);
         // Se agregan las capas individuales al autoParallax
         AutoParallaxBackground fondo = new AutoParallaxBackground(0,0,0,10);
-        fondo.attachParallaxEntity(new ParallaxBackground.ParallaxEntity(-8,fondoLejos));
+        fondo.attachParallaxEntity(new ParallaxBackground.ParallaxEntity(0,fondoLejos));
         fondo.attachParallaxEntity(new ParallaxBackground.ParallaxEntity(-2,fondoMedioMedio));
         fondo.attachParallaxEntity(new ParallaxBackground.ParallaxEntity(-16,fondoMedio));
         fondo.attachParallaxEntity(new ParallaxBackground.ParallaxEntity(-24,fondoCerca));

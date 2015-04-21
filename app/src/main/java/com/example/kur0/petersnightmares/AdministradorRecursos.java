@@ -66,6 +66,7 @@ public class AdministradorRecursos
     //-------------------------Universal para la barra de tiempo----------------------------
     private AssetBitmapTexture texturaBarraTiempo;
     public TextureRegion regionBarraTiempo;
+    //--------------------------------------------------------------------------------------
 
     //-------------------------Escena juego Run if it's unreal-----------------------------
     // Fondo
