@@ -53,7 +53,7 @@ public class ControlJuego extends SimpleBaseGameActivity
         admEscenas.setEscena(TipoEscena.ESCENA_SPLASH);
 
         // Programa la carga de la segunda escena, después de cierto tiempo
-        mEngine.registerUpdateHandler(new TimerHandler(5,
+        mEngine.registerUpdateHandler(new TimerHandler(2,
                 new ITimerCallback() {
                     @Override
                     public void onTimePassed(TimerHandler pTimerHandler) {

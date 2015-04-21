@@ -63,7 +63,11 @@ public class AdministradorRecursos
     private BitmapTextureAtlas texturaBtnRegresar;
     public ITextureRegion regionBtnRegresar;
 
-    //-------------------------Escena juego-----------------------------
+    //-------------------------Universal para la barra de tiempo----------------------------
+    private AssetBitmapTexture texturaBarraTiempo;
+    public TextureRegion regionBarraTiempo;
+
+    //-------------------------Escena juego Run if it's unreal-----------------------------
     // Fondo
     private ITexture texturaFondoLejos;
     public ITextureRegion regionFondoLejos;
@@ -79,12 +83,15 @@ public class AdministradorRecursos
     // Peter animado sobre la pantalla
     private BuildableBitmapTextureAtlas texturaPeterRunningAnimado;
     public TiledTextureRegion regionPeterRunningAnimado;
-    // Barra de tiempo
-    private AssetBitmapTexture texturaBarraTiempo;
-    public TextureRegion regionBarraTiempo;
     // Disparo del enemigo
     private BuildableBitmapTextureAtlas texturaDisparoEnemigo;
     public TiledTextureRegion regionDisparoEnemigo;
+
+    //----------------------Escena Juego Think Happy Thoughts------------
+
+
+    //----------------------Escena Juego Dodge your responsibility-------
+
 
     //----------------------Escena Opciones-------------------------------
 

@@ -26,7 +26,7 @@ public class RunIfUnreal extends EscenaBase
     private Sprite fondoMedio;
     private Sprite fondoMedioMedio;
     private Sprite fondoCerca;
-    // Barra de tiempo
+    // baa de tiempo
     private Sprite barraTiempo;
     // Sprite Enemigo
     private AnimatedSprite enemigo;
