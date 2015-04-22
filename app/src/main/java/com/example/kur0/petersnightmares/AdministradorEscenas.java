@@ -1,5 +1,7 @@
 package com.example.kur0.petersnightmares;
 
+import com.example.kur0.petersnightmares.EscenaBase;
+import com.example.kur0.petersnightmares.ThinkHappy;
 import com.example.kur0.petersnightmares.TipoEscena;
 
 import org.andengine.engine.Engine;
@@ -18,6 +20,7 @@ public class AdministradorEscenas
     private EscenaBase escenaMenu;
     private EscenaBase escenaAcercaDe;
     private EscenaBase escenaJuego;
+    private EscenaBase escenaJuegoThink;
     private EscenaBase escenaOpciones;
 
 
@@ -72,6 +75,9 @@ public class AdministradorEscenas
                 break;
             case ESCENA_RUNIFUNREAL:
                 setEscenaBase(escenaJuego);
+                break;
+            case ESCENA_THINKHAPPY:
+                setEscenaBase(escenaJuegoThink);
                 break;
             case ESCENA_OPCIONES:
                 setEscenaBase(escenaOpciones);
@@ -135,6 +141,19 @@ public class AdministradorEscenas
         admRecursos.liberarRecursosJuego();
         escenaJuego.liberarEscena();
         escenaJuego = null;
+    }
+    // Crea la escena de JUEGO Think Happy Thoughts
+    public void crearEscenaJuegoThink() {
+        // Carga los recursos
+        admRecursos.cargarRecursosJuegoThink();
+        escenaJuegoThink = new ThinkHappy();
+    }
+
+    //*** Libera la escena de JUEGO Think Happy Thoughts
+    public void liberarEscenaJuegoThink() {
+        admRecursos.liberarRecursosJuegoThink();
+        escenaJuegoThink.liberarEscena();
+        escenaJuegoThink = null;
     }
 
     //*** Crea la escena de Juego Dos

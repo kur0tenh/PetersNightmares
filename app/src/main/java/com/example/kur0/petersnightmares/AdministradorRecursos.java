@@ -89,7 +89,8 @@ public class AdministradorRecursos
     public TiledTextureRegion regionDisparoEnemigo;
 
     //----------------------Escena Juego Think Happy Thoughts------------
-
+    private BuildableBitmapTextureAtlas texturaImagenPuzzle;
+    public TiledTextureRegion regionImagenPuzzle;
 
     //----------------------Escena Juego Dodge your responsibility-------
 
@@ -270,7 +271,6 @@ public class AdministradorRecursos
         regionDisparoEnemigo = BitmapTextureAtlasTextureRegionFactory.createTiledFromAsset(texturaDisparoEnemigo, actividadJuego, "RunIfUnreal/DisparoEnemigo.png", 3, 2);        // Capas);
         try {
             texturaDisparoEnemigo.build(new BlackPawnTextureAtlasBuilder<IBitmapTextureAtlasSource, BitmapTextureAtlas>(0,0,0));
-
         } catch (ITextureAtlasBuilder.TextureAtlasBuilderException e) {
             Log.d("onCreateResources","No se puede cargar la imagen para el Sprite del disparo del enemigo");
         }
@@ -278,7 +278,7 @@ public class AdministradorRecursos
 
         // Carga la barra de tiempo
         try{
-            texturaBarraTiempo = new AssetBitmapTexture(actividadJuego.getTextureManager(),actividadJuego.getAssets(), "RunIfUnreal/BarraTiempo.png");
+            texturaBarraTiempo = new AssetBitmapTexture(actividadJuego.getTextureManager(),actividadJuego.getAssets(), "LVLGeneral/BarraTiempo.png");
             regionBarraTiempo = TextureRegionFactory.extractFromTexture(texturaBarraTiempo);
             texturaBarraTiempo.load();
         }
@@ -304,6 +304,39 @@ public class AdministradorRecursos
         //disparo enemigo
         texturaDisparoEnemigo.unload();
         regionDisparoEnemigo = null;
+        // Barra de tiempo
+        texturaBarraTiempo.unload();
+        regionBarraTiempo = null;
+    }
+    // Carga recursos para el segundo juego
+    public void cargarRecursosJuegoThink(){
+        //Carga el puzzle
+        texturaImagenPuzzle = new BuildableBitmapTextureAtlas(actividadJuego.getTextureManager(),1280,680);
+        regionImagenPuzzle = BitmapTextureAtlasTextureRegionFactory.createTiledFromAsset(texturaImagenPuzzle,actividadJuego,"ThinkHappy/Puzzle1.jpg",3,2);
+        try{
+            texturaImagenPuzzle.build(new BlackPawnTextureAtlasBuilder<IBitmapTextureAtlasSource, BitmapTextureAtlas>(0,0,0));
+        }
+        catch(ITextureAtlasBuilder.TextureAtlasBuilderException e){
+            Log.d("cargarRecursosOpciones", "No se puede cargar el puzzle");
+        }
+        texturaImagenPuzzle.load();
+        // Carga la barra de tiempo
+        try{
+            texturaBarraTiempo = new AssetBitmapTexture(actividadJuego.getTextureManager(),actividadJuego.getAssets(), "LVLGeneral/BarraTiempo.png");
+            regionBarraTiempo = TextureRegionFactory.extractFromTexture(texturaBarraTiempo);
+            texturaBarraTiempo.load();
+        }
+        catch (IOException e){
+            Log.d("cargarRecursosAcercaDe", "No se puede cargar la barra de tiempo");
+        }
+    }
+    // Libera los recursos para el segundo juego
+    public void liberarRecursosJuegoThink(){
+        texturaImagenPuzzle.unload();
+        regionImagenPuzzle = null;
+        // Barra de tiempo
+        texturaBarraTiempo.unload();
+        regionBarraTiempo = null;
     }
     public void cargarRecursosOpciones() {
         try {
