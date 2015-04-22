@@ -111,8 +111,8 @@ public class EscenaMenu extends EscenaBase
                     default:
                         return false;
                         */
-                        admEscenas.crearEscenaJuego();
-                        admEscenas.setEscena(TipoEscena.ESCENA_THINKHAPPY);
+                        admEscenas.crearEscenaDodge();
+                        admEscenas.setEscena(TipoEscena.ESCENA_DODGERESPONSIBILITY);
                         admEscenas.liberarEscenaMenu();
                         break;
                     default:
