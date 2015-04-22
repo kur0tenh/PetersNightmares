@@ -160,6 +160,19 @@ public class AdministradorEscenas
         escenaJuegoThink = null;
     }
 
+    // Crea la escena de JUEGO Dodge Responsability
+    public void crearEscenaDodge(){
+        //Carga los Recursos
+        admRecursos.cargarRecursosDodge();
+        escenaJuegoDodge = new DodgeResponsibility();
+    }
+
+    public void liberarEscenaDodge() {
+        admRecursos.liberarRecursosDodge();
+        escenaJuegoDodge.liberarEscena();
+        escenaJuegoDodge = null;
+    }
+
     //*** Crea la escena de Juego Dos
     public void crearEscenaOpciones() {
         // Carga los recursos

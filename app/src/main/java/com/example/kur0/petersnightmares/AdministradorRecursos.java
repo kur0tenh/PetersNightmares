@@ -93,7 +93,15 @@ public class AdministradorRecursos
     public TiledTextureRegion regionImagenPuzzle;
 
     //----------------------Escena Juego Dodge your responsibility-------
-
+    // Letras Que Caen
+    private BuildableBitmapTextureAtlas texturaImagenLetras;
+    public TiledTextureRegion regionImagenLetras;
+    // Cabeza de Peter
+    private BuildableBitmapTextureAtlas texturaImagenCabezaPeter;
+    public TiledTextureRegion regionImagenCabezaPeter;
+    // Enemigo
+    private BuildableBitmapTextureAtlas texturaImagenPuntero;
+    public TiledTextureRegion regionImagenPuntero;
 
     //----------------------Escena Opciones-------------------------------
 
@@ -159,6 +167,49 @@ public class AdministradorRecursos
         }
         // Cargar las imágenes de los botones
         cargarBotonesMenu();
+    }
+
+    //*** Recursos de la pantalla de DodgeResponsability
+    public void cargarRecursosDodge() {
+        // cargar la imagen de la Spritesheet Letras
+        texturaImagenLetras = new BuildableBitmapTextureAtlas(actividadJuego.getTextureManager(),1146,884);
+        regionImagenLetras = BitmapTextureAtlasTextureRegionFactory.createTiledFromAsset(texturaImagenLetras, actividadJuego.getAssets(), "DodgeResponsability/Letras.png", 10, 4);
+        try {
+            texturaImagenLetras.build(new BlackPawnTextureAtlasBuilder<IBitmapTextureAtlasSource, BitmapTextureAtlas>(0,0,0));
+        } catch (ITextureAtlasBuilder.TextureAtlasBuilderException e) {
+            Log.d("onCreateResources", "No se pueden cargar las letras");
+        }
+        texturaImagenLetras.load();
+
+        // cargar la imagen de la cabeza de Peter
+        texturaImagenCabezaPeter = new BuildableBitmapTextureAtlas(actividadJuego.getTextureManager(),1024,1024);
+        regionImagenCabezaPeter = BitmapTextureAtlasTextureRegionFactory.createTiledFromAsset(texturaImagenCabezaPeter, actividadJuego.getAssets(), "DodgeResponsability/petersprite.png", 2, 4);
+        try {
+            texturaImagenCabezaPeter.build(new BlackPawnTextureAtlasBuilder<IBitmapTextureAtlasSource, BitmapTextureAtlas>(0,0,0));
+        } catch (ITextureAtlasBuilder.TextureAtlasBuilderException e) {
+            Log.d("onCreateResources", "No se pueden cargar la cabeza de peter");
+        }
+        texturaImagenCabezaPeter.load();
+
+        // cargar la imagen de el enemigo
+        texturaImagenPuntero = new BuildableBitmapTextureAtlas(actividadJuego.getTextureManager(),610,142);
+        regionImagenPuntero = BitmapTextureAtlasTextureRegionFactory.createTiledFromAsset(texturaImagenPuntero, actividadJuego.getAssets(), "DodgeResponsability/puntero.png", 4, 1);
+        try {
+            texturaImagenPuntero.build(new BlackPawnTextureAtlasBuilder<IBitmapTextureAtlasSource, BitmapTextureAtlas>(0,0,0));
+        } catch (ITextureAtlasBuilder.TextureAtlasBuilderException e) {
+            Log.d("onCreateResources", "No se pueden cargar el puntero");
+        }
+        texturaImagenPuntero.load();
+    }
+    public void liberarRecursosDodge() {
+        texturaImagenPuntero.unload();
+        regionImagenPuntero = null;
+
+        texturaImagenCabezaPeter.unload();
+        regionImagenCabezaPeter = null;
+
+        texturaImagenLetras.unload();
+        regionImagenLetras = null;
     }
 
     // Carga las imágenes de los botones del menú principal
