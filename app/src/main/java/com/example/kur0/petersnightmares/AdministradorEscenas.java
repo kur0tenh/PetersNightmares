@@ -21,6 +21,7 @@ public class AdministradorEscenas
     private EscenaBase escenaAcercaDe;
     private EscenaBase escenaJuego;
     private EscenaBase escenaJuegoThink;
+    private EscenaBase escenaJuegoDodge;
     private EscenaBase escenaOpciones;
 
 
@@ -78,6 +79,9 @@ public class AdministradorEscenas
                 break;
             case ESCENA_THINKHAPPY:
                 setEscenaBase(escenaJuegoThink);
+                break;
+            case ESCENA_DODGERESPONSIBILITY:
+                setEscenaBase(escenaJuegoDodge);
                 break;
             case ESCENA_OPCIONES:
                 setEscenaBase(escenaOpciones);
