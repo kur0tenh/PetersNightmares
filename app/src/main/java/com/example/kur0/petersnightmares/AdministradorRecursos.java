@@ -111,6 +111,14 @@ public class AdministradorRecursos
     private BitmapTextureAtlas texturaBtnRegresarOpciones;
     public ITextureRegion regionBtnRegresarOpciones;
 
+    //----------------------Escena Mini Game Over-----------------------
+    //Fondo
+    private ITexture texturaMiniGameOver;
+    public ITextureRegion regionMiniGameOver;
+    //Vidas
+    private BuildableBitmapTextureAtlas texturaVidas;
+    public TiledTextureRegion regionVidas;
+
 
 
     // Método accesor de la instancia
@@ -374,7 +382,7 @@ public class AdministradorRecursos
     // Carga recursos para el segundo juego
     public void cargarRecursosJuegoThink(){
         //Carga el puzzle
-        texturaImagenPuzzle = new BuildableBitmapTextureAtlas(actividadJuego.getTextureManager(),1280,680);
+        texturaImagenPuzzle = new BuildableBitmapTextureAtlas(actividadJuego.getTextureManager(),1280,720);
         regionImagenPuzzle = BitmapTextureAtlasTextureRegionFactory.createTiledFromAsset(texturaImagenPuzzle,actividadJuego,"ThinkHappy/Puzzle1.jpg",4,2);
         try{
             texturaImagenPuzzle.build(new BlackPawnTextureAtlasBuilder<IBitmapTextureAtlasSource, BitmapTextureAtlas>(0,0,0));
@@ -421,5 +429,28 @@ public class AdministradorRecursos
         // Btn regresar
         texturaBtnRegresarOpciones.unload();
         regionBtnRegresarOpciones = null;
+    }
+    public void cargarRecursosMiniGameOver(){
+        try {
+            texturaMiniGameOver = new AssetBitmapTexture(actividadJuego.getTextureManager(),actividadJuego.getAssets(), "MiniGameOver/MiniGameOverBack.jpg");
+            regionMiniGameOver = TextureRegionFactory.extractFromTexture(texturaMiniGameOver);
+            texturaFondoOpciones.load();
+        }catch (IOException e){
+            Log.d("cargarRecursosMiniGameOver", "No se pueden cargar las imágenes");
+        }
+        texturaVidas = new BuildableBitmapTextureAtlas(actividadJuego.getTextureManager(),400,400);
+        regionVidas = BitmapTextureAtlasTextureRegionFactory.createTiledFromAsset(texturaDisparoEnemigo, actividadJuego, "MiniGameOver/Lifes.png", 4, 4);
+        try {
+            texturaVidas.build(new BlackPawnTextureAtlasBuilder<IBitmapTextureAtlasSource, BitmapTextureAtlas>(0,0,0));
+        } catch (ITextureAtlasBuilder.TextureAtlasBuilderException e) {
+            Log.d("onCreateResources","No se puede cargar la imagen para el Sprite de vidas");
+        }
+    }
+    public void liberarRecursosMiniGameOver() {
+        // Fondo
+        texturaMiniGameOver.unload();
+        regionMiniGameOver = null;
+        texturaVidas.unload();
+        regionVidas = null;
     }
 }
