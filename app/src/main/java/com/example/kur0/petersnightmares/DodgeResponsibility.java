@@ -114,7 +114,7 @@ public class DodgeResponsibility extends EscenaBase implements SensorEventListen
                 }
             }
         };
-        long frames[] = new long[6];
+        long frames[] = new long[16];
         for(int i=0; i<frames.length; i++) {
             frames[i] = 100;
         }
