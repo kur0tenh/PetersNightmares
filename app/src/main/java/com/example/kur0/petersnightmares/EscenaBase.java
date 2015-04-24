@@ -25,6 +25,6 @@ public abstract class EscenaBase extends Scene
     public abstract void onBackKeyPressed(); // Atiende el botón de back
     public abstract TipoEscena getTipoEscena(); // Regresa el tipo de escena
     public abstract void liberarEscena();   // Libera los recursos asignados
-    public abstract void onFinishedLevel();
+    //public abstract void onFinishedLevel();
 }
 

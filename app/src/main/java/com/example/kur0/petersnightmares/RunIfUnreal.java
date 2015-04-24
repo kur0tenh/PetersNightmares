@@ -273,14 +273,7 @@ public class RunIfUnreal extends EscenaBase
         admEscenas.setEscena(TipoEscena.ESCENA_MENU);
         admEscenas.liberarEscenaJuego();
     }
-    @Override
-    public void onFinishedLevel(){
-        admRecursos.camara.setHUD(null);
-        admEscenas.crearEscenaMiniGameOver();
-        admEscenas.liberarEscenaJuego();
-        admEscenas.setEscena(TipoEscena.ESCENA_MINIGAMEOVER);
 
-    }
 
     @Override
     public TipoEscena getTipoEscena() {

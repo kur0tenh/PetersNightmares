@@ -37,8 +37,5 @@ public class MiniGameOver extends EscenaBase {
     public TipoEscena getTipoEscena(){
         return TipoEscena.ESCENA_MINIGAMEOVER;
     }
-    @Override
-    public void onFinishedLevel(){
 
-    }
 }

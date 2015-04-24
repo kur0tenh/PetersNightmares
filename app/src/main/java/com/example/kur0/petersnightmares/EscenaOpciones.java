@@ -93,8 +93,5 @@ public class EscenaOpciones extends EscenaBase
         this.detachSelf();
         this.dispose();
     }
-    @Override
-    public void onFinishedLevel(){
 
-    }
 }

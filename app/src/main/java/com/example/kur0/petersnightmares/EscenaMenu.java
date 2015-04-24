@@ -171,8 +171,5 @@ public class EscenaMenu extends EscenaBase
         this.detachSelf();      // La escena se deconecta del engine
         this.dispose();         // Libera la memoria
     }
-    @Override
-    public void onFinishedLevel(){
 
-    }
 }
