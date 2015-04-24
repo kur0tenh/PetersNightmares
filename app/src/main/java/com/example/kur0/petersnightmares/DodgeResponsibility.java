@@ -25,7 +25,7 @@ import java.util.ArrayList;
 /**
  * Created by Anuar
  */
-public class DodgeResponsibility extends EscenaBase{
+public class DodgeResponsibility extends EscenaBase implements IAccelerationListener{
 
     private float time = 0;
     // barra de tiempo
@@ -41,6 +41,7 @@ public class DodgeResponsibility extends EscenaBase{
 
     @Override
     public void crearEscena() {
+        admRecursos.engine.enableAccelerationSensor(admRecursos.actividadJuego,this);
         manejadorDeTiempo();
         createBackground();
         crearPeter();
@@ -149,11 +150,6 @@ public class DodgeResponsibility extends EscenaBase{
             protected void preDraw(GLState pGLState, Camera pCamera) {
                 super.preDraw(pGLState, pCamera);
                 pGLState.enableDither();
-
-                /*public void onAccelerometerChanged(final AccelerometerData myAccelerometerData) {
-                    peter.setPosition(peter.getX() + myAccelerometerData.getX(), mySprite.getY() + myAccelerometerData.getY());
-
-                }*/
             }
         };
         long frames[] = new long[8];
@@ -189,5 +185,15 @@ public class DodgeResponsibility extends EscenaBase{
     public void liberarEscena() {
         this.detachSelf();
         this.dispose();
+    }
+
+    @Override
+    public void onAccelerationAccuracyChanged(AccelerationData pAccelerationData) {
+
+    }
+
+    @Override
+    public void onAccelerationChanged(AccelerationData pAccelerationData) {
+        peter.setPosition(peter.getX() + pAccelerationData.getX(), peter.getY());
     }
 }

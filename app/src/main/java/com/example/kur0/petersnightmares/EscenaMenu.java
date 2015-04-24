@@ -103,7 +103,6 @@ public class EscenaMenu extends EscenaBase
                         break;
                     case OPCION_JUGAR:
                         int es = 10*((int)Math.random()*3);
-                        Log.d("");
                         if(es==0){
                             admEscenas.crearEscenaJuego();
                             admEscenas.setEscena(TipoEscena.ESCENA_RUNIFUNREAL);
