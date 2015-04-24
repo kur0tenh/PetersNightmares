@@ -126,7 +126,7 @@ public class ThinkHappy extends EscenaBase {
                 // Prueba los límites de la pantalla
                 if (px<=-ControlJuego.ANCHO_CAMARA/2||finalizar()) {
                     //Cambiara a otra escena cuando existan los demas minigames
-                    Thread.sleep(100,1000);
+
                     onBackKeyPressed();
                 }
 
