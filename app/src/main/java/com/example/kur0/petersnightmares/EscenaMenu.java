@@ -1,5 +1,7 @@
 package com.example.kur0.petersnightmares;
 
+import android.util.Log;
+
 import org.andengine.engine.camera.Camera;
 import org.andengine.entity.scene.background.SpriteBackground;
 import org.andengine.entity.scene.menu.MenuScene;
@@ -9,6 +11,8 @@ import org.andengine.entity.scene.menu.item.decorator.ScaleMenuItemDecorator;
 import org.andengine.entity.sprite.ButtonSprite;
 import org.andengine.entity.sprite.Sprite;
 import org.andengine.opengl.util.GLState;
+
+import java.util.ArrayList;
 
 /**
  * Esto es el menu principal
@@ -101,9 +105,29 @@ public class EscenaMenu extends EscenaBase
                         admEscenas.liberarEscenaMenu();
                         break;
                     case OPCION_JUGAR:
-                        admEscenas.crearEscenaJuego();
-                        admEscenas.setEscena(TipoEscena.ESCENA_RUNIFUNREAL);
+                        ArrayList<TipoEscena> foo = new ArrayList<TipoEscena>();
+                        //TipoEscena[] foo = [TipoEscena.ESCENA_RUNIFUNREAL,TipoEscena.ESCENA_THINKHAPPY,TipoEscena.ESCENA_DODGERESPONSIBILITY];
+                        foo.add(TipoEscena.ESCENA_RUNIFUNREAL);
+                        foo.add(TipoEscena.ESCENA_THINKHAPPY);
+                        foo.add(TipoEscena.ESCENA_DODGERESPONSIBILITY);
+                        int var = ((int)(Math.random()*3))*1;
+                        //Log.d("EscenaMenu,"")
+                        TipoEscena m = foo.get(var);
+
+                        if(var == 0){
+                            admEscenas.crearEscenaJuego();
+                        }else{
+                            if(var == 1){
+                                admEscenas.crearEscenaJuegoThink();
+                            }
+                            else{
+                                if(var==2){
+                                    admEscenas.crearEscenaDodge();
+                                }
+                            }
+                        }
                         admEscenas.liberarEscenaMenu();
+                        admEscenas.setEscena(m);
                         break;
                     default:
                         return false;
