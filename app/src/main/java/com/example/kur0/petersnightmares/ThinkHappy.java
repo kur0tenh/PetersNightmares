@@ -153,4 +153,12 @@ public class ThinkHappy extends EscenaBase {
         this.detachSelf();      // La escena misma se deconecta del engine
         this.dispose();         // Libera la memoria
     }
+    @Override
+    public void onFinishedLevel(){
+        admRecursos.camara.setHUD(null);
+        admEscenas.crearEscenaMiniGameOver();
+        admEscenas.liberarEscenaJuego();
+        admEscenas.setEscena(TipoEscena.ESCENA_MINIGAMEOVER);
+
+    }
 }

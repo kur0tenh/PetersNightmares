@@ -23,6 +23,7 @@ public class AdministradorEscenas
     private EscenaBase escenaJuegoThink;
     private EscenaBase escenaJuegoDodge;
     private EscenaBase escenaOpciones;
+    private EscenaBase escenaMiniGameOver;
 
 
 
@@ -185,6 +186,15 @@ public class AdministradorEscenas
         admRecursos.liberarRecursosOpciones();
         escenaOpciones.liberarEscena();
         escenaOpciones = null;
+    }
+    public void crearEscenaMiniGameOver(){
+        admRecursos.cargarRecursosMiniGameOver();
+        escenaMiniGameOver = new MiniGameOver();
+    }
+    public void liberarRecursosMiniGameOver(){
+        admRecursos.liberarRecursosMiniGameOver();
+        escenaMiniGameOver.liberarEscena();
+        escenaMiniGameOver = null;
     }
 
 }

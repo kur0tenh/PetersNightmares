@@ -434,12 +434,12 @@ public class AdministradorRecursos
         try {
             texturaMiniGameOver = new AssetBitmapTexture(actividadJuego.getTextureManager(),actividadJuego.getAssets(), "MiniGameOver/MiniGameOverBack.jpg");
             regionMiniGameOver = TextureRegionFactory.extractFromTexture(texturaMiniGameOver);
-            texturaFondoOpciones.load();
+            texturaMiniGameOver.load();
         }catch (IOException e){
             Log.d("cargarRecursosMiniGameOver", "No se pueden cargar las imágenes");
         }
         texturaVidas = new BuildableBitmapTextureAtlas(actividadJuego.getTextureManager(),400,400);
-        regionVidas = BitmapTextureAtlasTextureRegionFactory.createTiledFromAsset(texturaDisparoEnemigo, actividadJuego, "MiniGameOver/Lifes.png", 4, 4);
+        regionVidas = BitmapTextureAtlasTextureRegionFactory.createTiledFromAsset(texturaVidas, actividadJuego, "MiniGameOver/Lifes.png", 4, 4);
         try {
             texturaVidas.build(new BlackPawnTextureAtlasBuilder<IBitmapTextureAtlasSource, BitmapTextureAtlas>(0,0,0));
         } catch (ITextureAtlasBuilder.TextureAtlasBuilderException e) {
