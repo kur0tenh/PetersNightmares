@@ -1,5 +1,7 @@
 package com.example.kur0.petersnightmares;
 
+import android.util.Log;
+
 import org.andengine.entity.modifier.RotationByModifier;
 import org.andengine.entity.modifier.RotationModifier;
 import org.andengine.entity.sprite.ButtonSprite;
@@ -18,6 +20,8 @@ import org.andengine.opengl.texture.region.TiledTextureRegion;
 import org.andengine.opengl.util.GLState;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Random;
 
 /**
@@ -46,7 +50,7 @@ public class ThinkHappy extends EscenaBase {
     // respectivo touch listener
     private void ordenarPuzzle(){
         TiledTextureRegion sc = admRecursos.regionImagenPuzzle;
-        lista = new ArrayList<Sprite>(8);
+        lista = new ArrayList<Sprite>();
         for(int i=0; i<=7; i++) {
             sc.setCurrentTileIndex(i);
             float xa;
@@ -67,37 +71,62 @@ public class ThinkHappy extends EscenaBase {
                 public boolean onAreaTouched(TouchEvent pSceneTouchEvent, float pTouchAreaLocalX, float pTouchAreaLocalY) {
 
                     if (pSceneTouchEvent.isActionDown()) {
-                        if(this.getRotation()!=0){
-                            this.registerEntityModifier(new RotationModifier(0.08f,this.getRotation(),this.getRotation()+90));
-                        }
+                        this.registerEntityModifier(new RotationModifier(0.05f,this.getRotation(),this.getRotation()+90));
                     }
+
+
                     return super.onAreaTouched(pSceneTouchEvent, pTouchAreaLocalX, pTouchAreaLocalY);
                 }
+
             };
-            unaSeccion.setRotation(90f*((int)(Math.random()*4)));
+
             attachChild(unaSeccion); // AGREGA a la ESCENA
-            lista.add(unaSeccion);    // Guarda en la lista
+            lista.add(unaSeccion);
+            unaSeccion.setRotation(90f*((int)(Math.random()*4)));//Asigna la rotacion aleatoriamente
             registerTouchArea(unaSeccion);
+
         }
+
     }
+    private boolean finalizar(){
+        boolean fin = false;
+        ArrayList<Sprite> c = new ArrayList<Sprite>();
+        for(int i = 0; i<lista.size(); i++){
+            if(((lista.get(i).getRotation()%360)==0)){
+                c.add(lista.get(i));
+            }else{
+
+            }
+        }
+        if(c.size() == lista.size()){
+            fin = true;
+        }
+        return fin;
+    }
+
 
 
     // Constante para mover la barra de tiempo
     private int dx = 1;
     // Este metodo controla la barra de tiempo
+
     private void manejadorDeTiempo(){
         barraTiempo = new Sprite(ControlJuego.ANCHO_CAMARA/2,(ControlJuego.ALTO_CAMARA)-20,admRecursos.regionBarraTiempo,admRecursos.vbom) {
             @Override
             protected void onManagedUpdate(float pSecondsElapsed) {
+
                 super.onManagedUpdate(pSecondsElapsed);
                 // Esta barra no tiene animación
-
                 // Mueve las coordenadas restando dx
                 float px = barraTiempo.getX()-dx;
                 barraTiempo.setPosition(px,this.getY());
+                //Aqui reimplementamos una forma de comprobar que todas
+                //las secciones esten en el angulo correcto
+
                 // Prueba los límites de la pantalla
-                if (px<=-ControlJuego.ANCHO_CAMARA/2) {
+                if (px<=-ControlJuego.ANCHO_CAMARA/2||finalizar()) {
                     //Cambiara a otra escena cuando existan los demas minigames
+                    Thread.sleep(100,1000);
                     onBackKeyPressed();
                 }
 
