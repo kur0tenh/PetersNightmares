@@ -44,7 +44,6 @@ public class DodgeResponsibility extends EscenaBase implements SensorEventListen
 
     @Override
     public void crearEscena() {
-
         manejadorDeTiempo();
         createBackground();
         crearPeter();
@@ -54,15 +53,6 @@ public class DodgeResponsibility extends EscenaBase implements SensorEventListen
     // Constante para mover la barra de tiempo
     private int dx = 1;
     // Este metodo controla la barra de tiempo
-    private void inicializarSensor() {
-        admSensores = (SensorManager)admRecursos.actividadJuego.getSystemService(Context.SENSOR_SERVICE);
-        sensorGravedad = admSensores.getDefaultSensor(Sensor.TYPE_GRAVITY);
-        if (sensorGravedad!=null) {
-            admSensores.registerListener(this,sensorGravedad,SensorManager.SENSOR_DELAY_GAME);
-        } else {
-            Log.i("SENSOR", "No hay sensor en tu dispositivo");
-        }
-    }
     private void manejadorDeTiempo(){
         barraTiempo = new Sprite(ControlJuego.ANCHO_CAMARA/2,(ControlJuego.ALTO_CAMARA)-20,admRecursos.regionBarraTiempo,admRecursos.vbom) {
             @Override
@@ -83,6 +73,15 @@ public class DodgeResponsibility extends EscenaBase implements SensorEventListen
         };
 
         attachChild(barraTiempo);
+    }
+    private void inicializarSensor() {
+        admSensores = (SensorManager)admRecursos.actividadJuego.getSystemService(Context.SENSOR_SERVICE);
+        sensorGravedad = admSensores.getDefaultSensor(Sensor.TYPE_GRAVITY);
+        if (sensorGravedad!=null) {
+            admSensores.registerListener(this,sensorGravedad,SensorManager.SENSOR_DELAY_GAME);
+        } else {
+            Log.i("SENSOR", "No hay sensor en tu dispositivo");
+        }
     }
     // movimiento del puntero
     int dxPuntero = 10;
@@ -208,16 +207,10 @@ public class DodgeResponsibility extends EscenaBase implements SensorEventListen
 
         // event.values es un arreglo de tipo float con 3 datos
         // cada elemento es la gravedad medida en x,y,z
-        float nuevaX = peter.getX() + event.values[1] * 5;
+        float nuevaX = peter.getX() + event.values[1] * 7;
         if (nuevaX < ControlJuego.ANCHO_CAMARA && nuevaX >= 0) {
             peter.setX(nuevaX);
-            peter.setX(nuevaX);
+            //peter.setX(nuevaX);
         }
-        /*
-        float nuevaY = spriteMatamoscas.getY() - event.values[0] * 5;
-        if (nuevaY < ControlJuego.ALTO_CAMARA && nuevaY >= 0) {
-            spriteMatamoscas.setY(nuevaY);
-        }
-        */
     }
 }
