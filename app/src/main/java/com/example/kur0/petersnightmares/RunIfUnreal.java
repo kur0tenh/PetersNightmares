@@ -109,7 +109,9 @@ public class RunIfUnreal extends EscenaBase
                     if (disparoEnemigo.collidesWith(peter) ) {
 
                         disparoEnemigo.detachSelf();
-                        onBackKeyPressed();
+                        admEscenas.crearEscenaJuegoThink();
+                        admEscenas.setEscena(TipoEscena.ESCENA_THINKHAPPY);
+                        admEscenas.liberarEscenaJuego();
 
                     }
                 }

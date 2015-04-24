@@ -85,8 +85,7 @@ public class EscenaMenu extends EscenaBase
         // Registra el Listener para atender las opciones
         menu.setOnMenuItemClickListener(new MenuScene.IOnMenuItemClickListener() {
             @Override
-            public boolean onMenuItemClicked(MenuScene pMenuScene, IMenuItem pMenuItem,
-                                             float pMenuItemLocalX, float pMenuItemLocalY) {
+            public boolean onMenuItemClicked(MenuScene pMenuScene, IMenuItem pMenuItem,float pMenuItemLocalX, float pMenuItemLocalY) {
                 // El parámetro pMenuItem indica la opcion oprimida
                 switch(pMenuItem.getID()) {
                     case OPCION_ACERCA_DE:
@@ -102,23 +101,8 @@ public class EscenaMenu extends EscenaBase
                         admEscenas.liberarEscenaMenu();
                         break;
                     case OPCION_JUGAR:
-                        int es = 10*((int)Math.random()*3);
-                     
-                        if(es==0){
-                            admEscenas.crearEscenaDodge();
-                            admEscenas.setEscena(TipoEscena.ESCENA_DODGERESPONSIBILITY);
-                        }
-                        else{
-                            if(es==1){
-                                admEscenas.crearEscenaJuegoThink();
-                                admEscenas.setEscena(TipoEscena.ESCENA_THINKHAPPY);
-                            }else{
-                                if(es==2){
-
-
-                                }
-                            }
-                        }
+                        admEscenas.crearEscenaJuego();
+                        admEscenas.setEscena(TipoEscena.ESCENA_RUNIFUNREAL);
                         admEscenas.liberarEscenaMenu();
                         break;
                     default:
