@@ -115,7 +115,7 @@ public class DodgeResponsibility extends EscenaBase implements SensorEventListen
         };
         long frames[] = new long[16];
         for(int i=0; i<frames.length; i++) {
-            frames[i] = 100;
+            frames[i] = 60;
         }
         puntero.animate(frames,0, frames.length-1, true);
         attachChild(puntero);
@@ -157,14 +157,14 @@ public class DodgeResponsibility extends EscenaBase implements SensorEventListen
 
     private void crearPeter() {
         TiledTextureRegion regionPeter = admRecursos.regionImagenCabezaPeter;
-        peter = new AnimatedSprite(640, 30, regionPeter, admRecursos.vbom){
+        peter = new AnimatedSprite(640, 70, regionPeter, admRecursos.vbom){
             @Override
             protected void preDraw(GLState pGLState, Camera pCamera) {
                 super.preDraw(pGLState, pCamera);
                 pGLState.enableDither();
             }
         };
-        long frames[] = new long[8];
+        long frames[] = new long[6];
         for(int i=0; i<frames.length; i++) {
             frames[i] = 100;
         }

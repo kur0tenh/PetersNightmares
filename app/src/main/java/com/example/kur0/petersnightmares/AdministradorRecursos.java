@@ -192,7 +192,7 @@ public class AdministradorRecursos
 
         // cargar la imagen de la cabeza de Peter
         texturaImagenCabezaPeter = new BuildableBitmapTextureAtlas(actividadJuego.getTextureManager(),1024,1024);
-        regionImagenCabezaPeter = BitmapTextureAtlasTextureRegionFactory.createTiledFromAsset(texturaImagenCabezaPeter, actividadJuego.getAssets(), "DodgeResponsibility/petersprite.png", 2, 4);
+        regionImagenCabezaPeter = BitmapTextureAtlasTextureRegionFactory.createTiledFromAsset(texturaImagenCabezaPeter, actividadJuego.getAssets(), "DodgeResponsibility/petersprite.png", 3, 2);
         try {
             texturaImagenCabezaPeter.build(new BlackPawnTextureAtlasBuilder<IBitmapTextureAtlasSource, BitmapTextureAtlas>(0,0,0));
         } catch (ITextureAtlasBuilder.TextureAtlasBuilderException e) {
