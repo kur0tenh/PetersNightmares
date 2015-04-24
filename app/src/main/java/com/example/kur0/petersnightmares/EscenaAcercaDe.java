@@ -46,8 +46,7 @@ public class EscenaAcercaDe extends EscenaBase
 
         float posicionX = (admRecursos.regionBtnRegresar.getWidth()/2);
         float posicionY = 720-(admRecursos.regionBtnRegresar.getHeight()/2);
-        spriteBtnRegreso = new ButtonSprite(posicionX,posicionY,admRecursos.regionBtnRegresar,
-                admRecursos.vbom) {
+        spriteBtnRegreso = new ButtonSprite(posicionX,posicionY,admRecursos.regionBtnRegresar,admRecursos.vbom) {
             @Override
             public boolean onAreaTouched(TouchEvent pSceneTouchEvent, float pTouchAreaLocalX, float pTouchAreaLocalY) {
 

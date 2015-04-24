@@ -69,7 +69,7 @@ public class RunIfUnreal extends EscenaBase
 
                     dyEnemigo = -dyEnemigo;
                 }
-                if(py<=100&&dispara>=50){
+                if(py<=100&&dispara>=35){
                     agregarDisparoEnemigo();
                 }
             }
