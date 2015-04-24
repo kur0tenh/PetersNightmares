@@ -144,7 +144,7 @@ public class DodgeResponsibility extends EscenaBase implements SensorEventListen
                 }else {
                     if(letra.collidesWith(peter)){
                         letra.detachSelf();
-                        //onBackKeyPressed();
+                        onBackKeyPressed();
                     }
                 }
             }
