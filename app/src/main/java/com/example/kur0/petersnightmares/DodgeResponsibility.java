@@ -1,6 +1,9 @@
 package com.example.kur0.petersnightmares;
 
+import android.content.Context;
 import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.util.Log;
 import java.util.Random;
@@ -10,8 +13,6 @@ import org.andengine.entity.primitive.Rectangle;
 import org.andengine.entity.scene.background.Background;
 import org.andengine.entity.sprite.AnimatedSprite;
 import org.andengine.entity.sprite.Sprite;
-import org.andengine.input.sensor.acceleration.AccelerationData;
-import org.andengine.input.sensor.acceleration.IAccelerationListener;
 import org.andengine.opengl.texture.ITexture;
 import org.andengine.opengl.texture.bitmap.AssetBitmapTexture;
 import org.andengine.opengl.texture.region.ITextureRegion;
@@ -25,7 +26,7 @@ import java.util.ArrayList;
 /**
  * Created by Anuar
  */
-public class DodgeResponsibility extends EscenaBase implements IAccelerationListener{
+public class DodgeResponsibility extends EscenaBase implements SensorEventListener{
 
     private float time = 0;
     // barra de tiempo
@@ -36,20 +37,32 @@ public class DodgeResponsibility extends EscenaBase implements IAccelerationList
     private Sprite letra;
     // sprite cabeza de peter
     private AnimatedSprite peter;
+
     private SensorManager admSensores; // Administra TODOS los sensores del dispositivo
-    private Sensor sensorGravedad;
+    private Sensor sensorGravedad;      // El sensor específico de gravedad
+
 
     @Override
     public void crearEscena() {
-        admRecursos.engine.enableAccelerationSensor(admRecursos.actividadJuego,this);
+
         manejadorDeTiempo();
         createBackground();
         crearPeter();
         agregarPuntero();
+        inicializarSensor();
     }
     // Constante para mover la barra de tiempo
     private int dx = 1;
     // Este metodo controla la barra de tiempo
+    private void inicializarSensor() {
+        admSensores = (SensorManager)admRecursos.actividadJuego.getSystemService(Context.SENSOR_SERVICE);
+        sensorGravedad = admSensores.getDefaultSensor(Sensor.TYPE_GRAVITY);
+        if (sensorGravedad!=null) {
+            admSensores.registerListener(this,sensorGravedad,SensorManager.SENSOR_DELAY_GAME);
+        } else {
+            Log.i("SENSOR", "No hay sensor en tu dispositivo");
+        }
+    }
     private void manejadorDeTiempo(){
         barraTiempo = new Sprite(ControlJuego.ANCHO_CAMARA/2,(ControlJuego.ALTO_CAMARA)-20,admRecursos.regionBarraTiempo,admRecursos.vbom) {
             @Override
@@ -186,14 +199,25 @@ public class DodgeResponsibility extends EscenaBase implements IAccelerationList
         this.detachSelf();
         this.dispose();
     }
-
     @Override
-    public void onAccelerationAccuracyChanged(AccelerationData pAccelerationData) {
-
+    public void onAccuracyChanged(Sensor sensor, int accuracy) {
     }
-
     @Override
-    public void onAccelerationChanged(AccelerationData pAccelerationData) {
-        peter.setPosition(peter.getX() + pAccelerationData.getX(), peter.getY());
+    public void onSensorChanged(SensorEvent event) {
+        // Leer los valores del sensor y en base a ellos, mover el matamoscas
+
+        // event.values es un arreglo de tipo float con 3 datos
+        // cada elemento es la gravedad medida en x,y,z
+        float nuevaX = peter.getX() + event.values[1] * 5;
+        if (nuevaX < ControlJuego.ANCHO_CAMARA && nuevaX >= 0) {
+            peter.setX(nuevaX);
+            peter.setX(nuevaX);
+        }
+        /*
+        float nuevaY = spriteMatamoscas.getY() - event.values[0] * 5;
+        if (nuevaY < ControlJuego.ALTO_CAMARA && nuevaY >= 0) {
+            spriteMatamoscas.setY(nuevaY);
+        }
+        */
     }
 }

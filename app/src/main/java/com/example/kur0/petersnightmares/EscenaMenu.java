@@ -103,9 +103,10 @@ public class EscenaMenu extends EscenaBase
                         break;
                     case OPCION_JUGAR:
                         int es = 10*((int)Math.random()*3);
+                     
                         if(es==0){
-                            admEscenas.crearEscenaJuego();
-                            admEscenas.setEscena(TipoEscena.ESCENA_RUNIFUNREAL);
+                            admEscenas.crearEscenaDodge();
+                            admEscenas.setEscena(TipoEscena.ESCENA_DODGERESPONSIBILITY);
                         }
                         else{
                             if(es==1){
