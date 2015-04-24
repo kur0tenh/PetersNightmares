@@ -182,7 +182,7 @@ public class AdministradorRecursos
         }
         // cargar la imagen de la Spritesheet Letras
         texturaImagenLetras = new BuildableBitmapTextureAtlas(actividadJuego.getTextureManager(),1146,884);
-        regionImagenLetras = BitmapTextureAtlasTextureRegionFactory.createTiledFromAsset(texturaImagenLetras, actividadJuego.getAssets(), "DodgeResponsibility/Letras.png", 10, 4);
+        regionImagenLetras = BitmapTextureAtlasTextureRegionFactory.createTiledFromAsset(texturaImagenLetras, actividadJuego.getAssets(), "DodgeResponsibility/Letras.png", 8, 3);
         try {
             texturaImagenLetras.build(new BlackPawnTextureAtlasBuilder<IBitmapTextureAtlasSource, BitmapTextureAtlas>(0,0,0));
         } catch (ITextureAtlasBuilder.TextureAtlasBuilderException e) {
@@ -202,7 +202,7 @@ public class AdministradorRecursos
 
         // cargar la imagen de el enemigo
         texturaImagenPuntero = new BuildableBitmapTextureAtlas(actividadJuego.getTextureManager(),610,142);
-        regionImagenPuntero = BitmapTextureAtlasTextureRegionFactory.createTiledFromAsset(texturaImagenPuntero, actividadJuego.getAssets(), "DodgeResponsibility/puntero.png", 4, 1);
+        regionImagenPuntero = BitmapTextureAtlasTextureRegionFactory.createTiledFromAsset(texturaImagenPuntero, actividadJuego.getAssets(), "DodgeResponsibility/puntero.png", 6, 1);
         try {
             texturaImagenPuntero.build(new BlackPawnTextureAtlasBuilder<IBitmapTextureAtlasSource, BitmapTextureAtlas>(0,0,0));
         } catch (ITextureAtlasBuilder.TextureAtlasBuilderException e) {
