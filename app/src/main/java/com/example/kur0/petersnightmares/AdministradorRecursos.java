@@ -209,8 +209,8 @@ public class AdministradorRecursos
         texturaImagenCabezaPeter.load();
 
         // cargar la imagen de el enemigo
-        texturaImagenPuntero = new BuildableBitmapTextureAtlas(actividadJuego.getTextureManager(),610,142);
-        regionImagenPuntero = BitmapTextureAtlasTextureRegionFactory.createTiledFromAsset(texturaImagenPuntero, actividadJuego.getAssets(), "DodgeResponsibility/puntero.png", 6, 1);
+        texturaImagenPuntero = new BuildableBitmapTextureAtlas(actividadJuego.getTextureManager(),180,560);
+        regionImagenPuntero = BitmapTextureAtlasTextureRegionFactory.createTiledFromAsset(texturaImagenPuntero, actividadJuego.getAssets(), "DodgeResponsibility/puntero.png", 4, 4);
         try {
             texturaImagenPuntero.build(new BlackPawnTextureAtlasBuilder<IBitmapTextureAtlasSource, BitmapTextureAtlas>(0,0,0));
         } catch (ITextureAtlasBuilder.TextureAtlasBuilderException e) {
