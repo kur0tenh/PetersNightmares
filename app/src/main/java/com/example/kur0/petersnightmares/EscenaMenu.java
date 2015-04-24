@@ -102,6 +102,27 @@ public class EscenaMenu extends EscenaBase
                         admEscenas.liberarEscenaMenu();
                         break;
                     case OPCION_JUGAR:
+                        int es = 10*((int)Math.random()*3);
+                        Log.d("");
+                        if(es==0){
+                            admEscenas.crearEscenaJuego();
+                            admEscenas.setEscena(TipoEscena.ESCENA_RUNIFUNREAL);
+                        }
+                        else{
+                            if(es==1){
+                                admEscenas.crearEscenaJuegoThink();
+                                admEscenas.setEscena(TipoEscena.ESCENA_THINKHAPPY);
+                            }else{
+                                if(es==2){
+
+
+                                }
+                            }
+                        }
+                        admEscenas.liberarEscenaMenu();
+                        break;
+                    default:
+                        return false;
                         // Mostrar la pantalla de juego
                         /*
                         admEscenas.crearEscenaJuego();
@@ -110,13 +131,14 @@ public class EscenaMenu extends EscenaBase
                         break;
                     default:
                         return false;
-                        */
-                        admEscenas.crearEscenaDodge();
-                        admEscenas.setEscena(TipoEscena.ESCENA_DODGERESPONSIBILITY);
+                        ---------------------------------------------------
+                        admEscenas.crearEscenaJuegoThink();
+                        admEscenas.setEscena(TipoEscena.ESCENA_THINKHAPPY);
                         admEscenas.liberarEscenaMenu();
                         break;
                     default:
                         return false;
+                    */
                 }
                 return true;
             }

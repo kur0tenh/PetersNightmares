@@ -375,7 +375,7 @@ public class AdministradorRecursos
     public void cargarRecursosJuegoThink(){
         //Carga el puzzle
         texturaImagenPuzzle = new BuildableBitmapTextureAtlas(actividadJuego.getTextureManager(),1280,680);
-        regionImagenPuzzle = BitmapTextureAtlasTextureRegionFactory.createTiledFromAsset(texturaImagenPuzzle,actividadJuego,"ThinkHappy/Puzzle1.jpg",3,2);
+        regionImagenPuzzle = BitmapTextureAtlasTextureRegionFactory.createTiledFromAsset(texturaImagenPuzzle,actividadJuego,"ThinkHappy/Puzzle1.jpg",4,2);
         try{
             texturaImagenPuzzle.build(new BlackPawnTextureAtlasBuilder<IBitmapTextureAtlasSource, BitmapTextureAtlas>(0,0,0));
         }

@@ -2,6 +2,7 @@ package com.example.kur0.petersnightmares;
 
 import android.util.Log;
 
+import org.andengine.entity.modifier.DelayModifier;
 import org.andengine.entity.modifier.RotationByModifier;
 import org.andengine.entity.modifier.RotationModifier;
 import org.andengine.entity.sprite.ButtonSprite;
@@ -126,6 +127,7 @@ public class ThinkHappy extends EscenaBase {
                 // Prueba los límites de la pantalla
                 if (px<=-ControlJuego.ANCHO_CAMARA/2||finalizar()) {
                     //Cambiara a otra escena cuando existan los demas minigames
+
 
                     onBackKeyPressed();
                 }
