@@ -100,4 +100,8 @@ public class EscenaAcercaDe extends EscenaBase
         this.detachSelf();      // La escena misma se deconecta del engine
         this.dispose();         // Libera la memoria
     }
+    @Override
+    public void onFinishedLevel(){
+
+    }
 }
