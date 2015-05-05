@@ -83,6 +83,7 @@ public class DodgeResponsibility extends EscenaBase implements SensorEventListen
             Log.i("SENSOR", "No hay sensor en tu dispositivo");
         }
     }
+
     // movimiento del puntero
     int dxPuntero = 10;
     //Pone el puntero
