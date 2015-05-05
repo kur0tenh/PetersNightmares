@@ -39,7 +39,7 @@ public class DodgeResponsibility extends EscenaBase implements SensorEventListen
     private AnimatedSprite peter;
 
     private SensorManager admSensores; // Administra TODOS los sensores del dispositivo
-    private Sensor sensorGravedad;      // El sensor específico de gravedad
+    private Sensor sensorAceleracion;      // El sensor específico de gravedad
 
 
     @Override
@@ -76,9 +76,9 @@ public class DodgeResponsibility extends EscenaBase implements SensorEventListen
     }
     private void inicializarSensor() {
         admSensores = (SensorManager)admRecursos.actividadJuego.getSystemService(Context.SENSOR_SERVICE);
-        sensorGravedad = admSensores.getDefaultSensor(Sensor.TYPE_GRAVITY);
-        if (sensorGravedad!=null) {
-            admSensores.registerListener(this,sensorGravedad,SensorManager.SENSOR_DELAY_GAME);
+        sensorAceleracion = admSensores.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        if (sensorAceleracion!=null) {
+            admSensores.registerListener(this,sensorAceleracion,SensorManager.SENSOR_DELAY_GAME);
         } else {
             Log.i("SENSOR", "No hay sensor en tu dispositivo");
         }
