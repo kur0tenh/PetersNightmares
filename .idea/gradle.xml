@@ -6,15 +6,15 @@
         <option name="distributionType" value="LOCAL" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="gradleHome" value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1" />
+        <option name="gradleJvm" value="1.8" />
         <option name="modules">
           <set>
-            <option value="/mnt/OS/Users/kur0/Documents/AndroidStudioProjects/PetersNightmares/PetersNightmares" />
-            <option value="/mnt/OS/Users/kur0/Documents/AndroidStudioProjects/PetersNightmares/PetersNightmares/app" />
-            <option value="/mnt/OS/Users/kur0/Documents/AndroidStudioProjects/PetersNightmares/PetersNightmares/org.andengine" />
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/org.andengine" />
           </set>
         </option>
       </GradleProjectSettings>
     </option>
   </component>
 </project>
-
