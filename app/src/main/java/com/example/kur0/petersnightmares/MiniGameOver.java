@@ -42,7 +42,7 @@ public class MiniGameOver extends EscenaBase {
         admRecursos.camara.setHUD(null);
         admEscenas.crearEscenaMenu();
         admEscenas.setEscena(TipoEscena.ESCENA_MENU);
-        admEscenas.liberarEscenaJuegoThink();
+        admEscenas.liberarEscenaMiniGameOver();
     }
     @Override
     public void liberarEscena() {
