@@ -59,12 +59,12 @@ public class ThinkHappy extends EscenaBase {
             if(i>3) {
                 // El valor por defecto es 340 pero tiene una tolerancia
                 // para que haya una separación sutil entre las secciones
-                ya = (float) ((359 - (sc.getHeight()/2)));
+                ya = (float) ((339 - (sc.getHeight()/2)));
                 // El valor es 320... se incrementa para tener una separación
                 // sutil entre las secciones
                 xa = (float)((321*(i-4))+160);
             }else{
-                ya = (float) 720 - sc.getHeight() / 2;
+                ya = (float) 680 - sc.getHeight() / 2;
                 xa = (float)((321*(i))+160);
             }
             Sprite unaSeccion = new Sprite(xa, ya,admRecursos.regionImagenPuzzle, admRecursos.vbom){
