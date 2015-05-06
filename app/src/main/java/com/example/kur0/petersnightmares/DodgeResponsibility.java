@@ -83,7 +83,6 @@ public class DodgeResponsibility extends EscenaBase implements SensorEventListen
             Log.i("SENSOR", "No hay sensor en tu dispositivo");
         }
     }
-
     // movimiento del puntero
     int dxPuntero = 10;
     //Pone el puntero
@@ -99,7 +98,10 @@ public class DodgeResponsibility extends EscenaBase implements SensorEventListen
             @Override
 
             protected void onManagedUpdate(float pSecondsElapsed) {
+
+
                 super.onManagedUpdate(pSecondsElapsed);
+                double dispara = Math.random()*100;
                 // Mueve con dx
                 float px = (float)(puntero.getX()+dxPuntero);
                 puntero.setPosition(px,this.getY());
