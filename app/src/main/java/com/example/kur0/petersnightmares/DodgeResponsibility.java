@@ -7,6 +7,9 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.Display;
+import android.view.WindowManager;
+
 import java.util.Random;
 
 import org.andengine.engine.camera.Camera;
@@ -23,6 +26,7 @@ import java.util.ArrayList;
 /**
  * Created by Anuar
  */
+
 public class DodgeResponsibility extends EscenaBase implements SensorEventListener{
 
     private float time = 0;
@@ -202,16 +206,21 @@ public class DodgeResponsibility extends EscenaBase implements SensorEventListen
     @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
     }
+
     @Override
     public void onSensorChanged(SensorEvent event) {
         // Leer los valores del sensor y en base a ellos, mover el matamoscas
 
         // event.values es un arreglo de tipo float con 3 datos
-        // cada elemento es la gravedad medida en x,y,z
+        // cada elemento es la aceleracion medida en x,y,z
+
+
+
+
+        //float pulgadas = (metrics.widthPixels)/(metrics.densityDpi);
         float nuevaX = peter.getX() + event.values[1] * 7;
         if (nuevaX < ControlJuego.ANCHO_CAMARA && nuevaX >= 0) {
             peter.setX(nuevaX);
-            //peter.setX(nuevaX);
         }
     }
 
