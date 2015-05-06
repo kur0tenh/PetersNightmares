@@ -71,7 +71,7 @@ public class EscenaMenu extends EscenaBase
                     admRecursos.actividadJuego, "sonido/demo.ogg");
         }
         catch (IOException e) {
-            Log.i("cargarSonidos","No se puede cargar la cosa");
+            Log.i("cargarSonidos","No se puede cargar la musica");
         }
         // Reproducir
         musicaFondo.setLooping(true);
