@@ -100,12 +100,12 @@ public class DodgeResponsibility extends EscenaBase implements SensorEventListen
         }
     }
     // movimiento del puntero
-    int dxPuntero = 20;
+    int dxPuntero = 15;
     //Pone el puntero
     private void agregarPuntero() {
 
         TiledTextureRegion regionPuntero = admRecursos.regionImagenPuntero;
-        puntero = new AnimatedSprite((float)Math.random()*1280, 550, regionPuntero, admRecursos.vbom){
+        puntero = new AnimatedSprite((float)Math.random()*1280, 500, regionPuntero, admRecursos.vbom){
             @Override
             protected void preDraw(GLState pGLState, Camera pCamera) {
                 super.preDraw(pGLState, pCamera);
@@ -119,37 +119,39 @@ public class DodgeResponsibility extends EscenaBase implements SensorEventListen
                 super.onManagedUpdate(pSecondsElapsed);
                 // Mueve con dx
                 float px =puntero.getX()+dxPuntero;
-                puntero.setPosition(px,this.getY());
+                puntero.setPosition(px, this.getY());
                 time = time+pSecondsElapsed;
-
-                if (time>=1||time>=2||time>=3){
-                    long frames[] = new long[16];
-                    for(int i=0; i<frames.length; i++) {
-                        frames[i] = 60;
-                    }
-                    puntero.animate(frames,0, frames.length-1, true);
+                float n = (float) (Math.random());
+                if (time>=(1+n)){
                     time = 0;
                     agregarLetra();
                 }
-                if (px>=1260|| px<=30) {
+                if (px>=1280|| px<=0) {
 
                     dxPuntero = -dxPuntero;
                 }
-            }
-        };
 
+            }
+
+        };
+        long frames[] = new long[16];
+        for(int i=0; i<frames.length; i++) {
+            frames[i] = 60;
+        }
+        puntero.animate(frames,0, frames.length-1, true);
         attachChild(puntero);
     }
 
     // movimiento del proyectil
-    int dyLetra = 20;
+    int dyLetra = 13;
     //Pone un proyectil
     private void agregarLetra(){
         TiledTextureRegion regionLetra = admRecursos.regionImagenLetras;
         //selecciona una letra de manera aleatoria
         int h = ((int)(Math.random()*26));
         regionLetra.setCurrentTileIndex(h);
-        letra = new Sprite(puntero.getX(),720,regionLetra,admRecursos.vbom){
+
+        letra = new Sprite(puntero.getX(),680,regionLetra,admRecursos.vbom){
             @Override
             protected void preDraw(GLState pGLState, Camera pCamera) {
                 super.preDraw(pGLState, pCamera);
@@ -160,6 +162,7 @@ public class DodgeResponsibility extends EscenaBase implements SensorEventListen
                 super.onManagedUpdate(pSecondsElapsed);
                 // Mueve con dy
                 float py =letra.getY()-dyLetra;
+
                 letra.setPosition(this.getX(), py);
                 if (letra.getY() < 0) {
                     letra.detachSelf();
@@ -234,7 +237,7 @@ public class DodgeResponsibility extends EscenaBase implements SensorEventListen
 
 
         //float pulgadas = (metrics.widthPixels)/(metrics.densityDpi);
-        float nuevaX = peter.getX() + event.values[1] * 7;
+        float nuevaX = peter.getX() + event.values[1] * 5;
         if (nuevaX < ControlJuego.ANCHO_CAMARA && nuevaX >= 0) {
             peter.setX(nuevaX);
         }
