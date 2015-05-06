@@ -29,6 +29,10 @@ public class MiniGameOver extends EscenaBase {
                 super.preDraw(pGLState, pCamera);
                 pGLState.enableDither();
             }
+            @Override
+            protected void onManagedUpdate(float pSecondsElapsed) {
+                
+            }
         };
 
         // Configuración de la imagen
