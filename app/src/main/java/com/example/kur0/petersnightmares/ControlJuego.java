@@ -1,6 +1,5 @@
 package com.example.kur0.petersnightmares;
 
-
 import android.graphics.Point;
 import android.view.KeyEvent;
 
@@ -36,10 +35,12 @@ public class ControlJuego extends SimpleBaseGameActivity
     @Override
     public EngineOptions onCreateEngineOptions() {
 
-
         camara = new Camera(0,0,ANCHO_CAMARA,ALTO_CAMARA);
+        // Para habilitar la reproducción de sonidos 'largos' -Música de fondo-
 
-        return new EngineOptions(true, ScreenOrientation.LANDSCAPE_FIXED, /*new RatioResolutionPolicy(ANCHO_CAMARA,ALTO_CAMARA),camara)*/ new FillResolutionPolicy(), camara);
+        EngineOptions opciones = new EngineOptions(true, ScreenOrientation.LANDSCAPE_FIXED, /*new RatioResolutionPolicy(ANCHO_CAMARA,ALTO_CAMARA),camara)*/ new FillResolutionPolicy(), camara);
+        opciones.getAudioOptions().setNeedsMusic(true);
+        return opciones;
     }
 
     @Override

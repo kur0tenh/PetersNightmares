@@ -1,5 +1,9 @@
 package com.example.kur0.petersnightmares;
 
+import org.andengine.audio.music.Music;
+import org.andengine.audio.music.MusicFactory;
+import org.andengine.audio.sound.Sound;
+import org.andengine.audio.sound.SoundFactory;
 import android.util.Log;
 
 import org.andengine.engine.camera.Camera;
@@ -12,6 +16,7 @@ import org.andengine.entity.sprite.ButtonSprite;
 import org.andengine.entity.sprite.Sprite;
 import org.andengine.opengl.util.GLState;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -26,6 +31,7 @@ public class EscenaMenu extends EscenaBase
     // *** Botones del menú
     private ButtonSprite btnAcercaDe;
     private ButtonSprite btnJugar;
+    private Music musicaFondo;
 
     // *** Un menú de tipo SceneMenu
     private MenuScene menu;     // Reemplaza a los botones individuales
@@ -55,6 +61,22 @@ public class EscenaMenu extends EscenaBase
 
         // *** Otra forma de mostrar opciones de menú
         agregarMenu();
+        cargarSonidos();
+    }
+
+    //Musica
+    private void cargarSonidos() {
+        try {
+            musicaFondo = MusicFactory.createMusicFromAsset(admRecursos.engine.getMusicManager(),
+                    admRecursos.actividadJuego, "sonido/demo.ogg");
+        }
+        catch (IOException e) {
+            Log.i("cargarSonidos","No se puede cargar la cosa");
+        }
+        // Reproducir
+        musicaFondo.setLooping(true);
+        musicaFondo.play();
+
     }
 
     private void agregarMenu() {
@@ -159,6 +181,7 @@ public class EscenaMenu extends EscenaBase
     @Override
     public void onBackKeyPressed() {
         // Salir del juego
+        musicaFondo.stop();
     }
 
     @Override
@@ -168,8 +191,13 @@ public class EscenaMenu extends EscenaBase
 
     @Override
     public void liberarEscena() {
+        musicaFondo.release();
         this.detachSelf();      // La escena se deconecta del engine
         this.dispose();         // Libera la memoria
     }
 
+    public Music getMusicaFondo() {
+        return musicaFondo;
+    }
 }
+
