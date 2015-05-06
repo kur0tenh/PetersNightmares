@@ -1,6 +1,8 @@
 package com.example.kur0.petersnightmares;
 
+import android.telephony.TelephonyManager;
 import android.util.Log;
+import android.content.Context;
 import org.andengine.engine.Engine;
 import org.andengine.engine.camera.Camera;
 import org.andengine.opengl.texture.ITexture;
@@ -121,7 +123,6 @@ public class AdministradorRecursos
     //Vidas
     private BuildableBitmapTextureAtlas texturaVidas;
     public TiledTextureRegion regionVidas;
-
 
 
     // Método accesor de la instancia

@@ -1,10 +1,12 @@
 package com.example.kur0.petersnightmares;
 
 import android.content.Context;
+import android.content.res.Configuration;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.telephony.TelephonyManager;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Display;
@@ -45,7 +47,11 @@ public class DodgeResponsibility extends EscenaBase implements SensorEventListen
     private SensorManager admSensores; // Administra TODOS los sensores del dispositivo
     private Sensor sensorAceleracion;      // El sensor específico de gravedad
 
-
+    public boolean isTablet(Context context) {
+        boolean xlarge = ((context.getResources().getConfiguration().screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK) == Configuration.SCREENLAYOUT_SIZE_XLARGE);
+        boolean large = ((context.getResources().getConfiguration().screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK) == Configuration.SCREENLAYOUT_SIZE_LARGE);
+        return (xlarge || large);
+    }
     @Override
     public void crearEscena() {
         spriteFondo = new Sprite(0,0, admRecursos.regionFondoDodge,admRecursos.vbom) {
@@ -53,6 +59,7 @@ public class DodgeResponsibility extends EscenaBase implements SensorEventListen
             protected void preDraw(GLState pGLState, Camera pCamera) {
                 super.preDraw(pGLState, pCamera);
                 pGLState.enableDither();
+
             }
         };
 
@@ -238,8 +245,12 @@ public class DodgeResponsibility extends EscenaBase implements SensorEventListen
 
         //float pulgadas = (metrics.widthPixels)/(metrics.densityDpi);
         float nuevaX = peter.getX() + event.values[1] * 5;
-        if (nuevaX < ControlJuego.ANCHO_CAMARA && nuevaX >= 0) {
+        if (nuevaX < ControlJuego.ANCHO_CAMARA && nuevaX >= 0 && isTablet(admRecursos.actividadJuego)) {
+            peter.setY(nuevaX);
+            Log.d("onSensorChanged", "es tablet");
+        } else if (nuevaX < ControlJuego.ANCHO_CAMARA && nuevaX >= 0 && isTablet(admRecursos.actividadJuego) == false)  {
             peter.setX(nuevaX);
+            Log.d("onSensorChanged", "es telepono");
         }
     }
 
