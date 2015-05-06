@@ -220,13 +220,15 @@ public class DodgeResponsibility extends EscenaBase implements SensorEventListen
         admRecursos.camara.setHUD(null);
         admEscenas.crearEscenaMenu();
         admEscenas.setEscena(TipoEscena.ESCENA_MENU);
-        admEscenas.liberarEscenaMiniGameOver();
+        admEscenas.liberarEscenaDodge();
     }
     public void onFinishedLevel(){
         admRecursos.camara.setHUD(null);
         admEscenas.crearEscenaMiniGameOver();
+        MiniGameOver.lastLevel = "Dodge";
         admEscenas.setEscena(TipoEscena.ESCENA_MINIGAMEOVER);
         admEscenas.liberarEscenaDodge();
+
 
     }
     @Override

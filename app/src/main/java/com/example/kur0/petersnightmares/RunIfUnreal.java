@@ -164,10 +164,34 @@ public class RunIfUnreal extends EscenaBase
         float xCerca = admRecursos.regionFondoCerca.getWidth()/2;
         float y = ControlJuego.ALTO_CAMARA/2;
         float yCerca = admRecursos.regionFondoCerca.getHeight()/2;
-        fondoLejos = new Sprite(xLejos,y,admRecursos.regionFondoLejos,admRecursos.vbom);
-        fondoMedioMedio = new Sprite(xMedioMedio,y,admRecursos.regionFondoMedioMedio,admRecursos.vbom);
-        fondoMedio = new Sprite(xMedio,y,admRecursos.regionFondoMedio,admRecursos.vbom);
-        fondoCerca = new Sprite(xCerca,yCerca,admRecursos.regionFondoCerca,admRecursos.vbom);
+        fondoLejos = new Sprite(xLejos,y,admRecursos.regionFondoLejos,admRecursos.vbom){
+            @Override
+            protected void preDraw(GLState pGLState, Camera pCamera) {
+                super.preDraw(pGLState, pCamera);
+                pGLState.enableDither();
+            }
+        };
+        fondoMedioMedio = new Sprite(xMedioMedio,y,admRecursos.regionFondoMedioMedio,admRecursos.vbom){
+            @Override
+            protected void preDraw(GLState pGLState, Camera pCamera) {
+                super.preDraw(pGLState, pCamera);
+                pGLState.enableDither();
+            }
+        };
+        fondoMedio = new Sprite(xMedio,y,admRecursos.regionFondoMedio,admRecursos.vbom){
+            @Override
+            protected void preDraw(GLState pGLState, Camera pCamera) {
+                super.preDraw(pGLState, pCamera);
+                pGLState.enableDither();
+            }
+        };
+        fondoCerca = new Sprite(xCerca,yCerca,admRecursos.regionFondoCerca,admRecursos.vbom){
+            @Override
+            protected void preDraw(GLState pGLState, Camera pCamera) {
+                super.preDraw(pGLState, pCamera);
+                pGLState.enableDither();
+            }
+        };
         // Se agregan las capas individuales al autoParallax
         AutoParallaxBackground fondo = new AutoParallaxBackground(0,0,0,10);
         fondo.attachParallaxEntity(new ParallaxBackground.ParallaxEntity(0,fondoLejos));
@@ -279,6 +303,7 @@ public class RunIfUnreal extends EscenaBase
     public void onFinishedLevel(){
         admRecursos.camara.setHUD(null);
         admEscenas.crearEscenaMiniGameOver();
+        MiniGameOver.lastLevel = "Run";
         admEscenas.setEscena(TipoEscena.ESCENA_MINIGAMEOVER);
         admEscenas.liberarEscenaJuego();
 

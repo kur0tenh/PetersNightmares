@@ -10,12 +10,14 @@ import org.andengine.entity.sprite.AnimatedSprite;
 import org.andengine.entity.sprite.Sprite;
 import org.andengine.opengl.util.GLState;
 
+import java.util.ArrayList;
 
 
 /**
  * Created by kur0
  */
 public class MiniGameOver extends EscenaBase {
+    public static String lastLevel;
     private Sprite spriteFondo;
     private AnimatedSprite vidas;
 
@@ -34,6 +36,53 @@ public class MiniGameOver extends EscenaBase {
         SpriteBackground fondo = new SpriteBackground(0,0,0,spriteFondo);
         setBackground(fondo);
         setBackgroundEnabled(true);
+    }
+    public void nextLevel() {
+        ArrayList<TipoEscena> foo = new ArrayList<TipoEscena>();
+        TipoEscena m = null;
+        int var = 0;
+        if (MiniGameOver.lastLevel.equals("Think")) {
+            foo.add(TipoEscena.ESCENA_RUNIFUNREAL);
+            foo.add(TipoEscena.ESCENA_DODGERESPONSIBILITY);
+            var = ((int) (Math.random() * 2)) * 1;
+            if (var == 0) {
+                admEscenas.crearEscenaJuego();
+            } else {
+                if (var == 1) {
+                    admEscenas.crearEscenaDodge();
+                } else {
+                    if (MiniGameOver.lastLevel.equals("Dodge")) {
+                        foo.add(TipoEscena.ESCENA_RUNIFUNREAL);
+                        foo.add(TipoEscena.ESCENA_THINKHAPPY);
+                        var = ((int) (Math.random() * 2)) * 1;
+                        if (var == 0) {
+                            admEscenas.crearEscenaJuego();
+                        } else {
+                            if (var == 1) {
+                                admEscenas.crearEscenaJuegoThink();
+                            } else {
+                                if (MiniGameOver.lastLevel.equals("Run")) {
+                                    foo.add(TipoEscena.ESCENA_THINKHAPPY);
+                                    foo.add(TipoEscena.ESCENA_DODGERESPONSIBILITY);
+                                    var = ((int) (Math.random() * 2)) * 1;
+                                    if (var == 0) {
+                                        admEscenas.crearEscenaJuegoThink();
+                                    } else {
+                                        if (var == 1) {
+                                            admEscenas.crearEscenaDodge();
+                                        }
+
+                                    }
+                                }
+                            }
+                        }
+                        m = foo.get(var);
+                        admEscenas.liberarEscenaMiniGameOver();
+                        admEscenas.setEscena(m);
+                    }
+                }
+            }
+        }
     }
 
     @Override

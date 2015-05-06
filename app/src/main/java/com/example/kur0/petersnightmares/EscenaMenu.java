@@ -153,22 +153,6 @@ public class EscenaMenu extends EscenaBase
                         break;
                     default:
                         return false;
-                        // Mostrar la pantalla de juego
-                        /*
-                        admEscenas.crearEscenaJuego();
-                        admEscenas.setEscena(TipoEscena.ESCENA_RUNIFUNREAL);
-                        admEscenas.liberarEscenaMenu();
-                        break;
-                    default:
-                        return false;
-                        ---------------------------------------------------
-                        admEscenas.crearEscenaJuegoThink();
-                        admEscenas.setEscena(TipoEscena.ESCENA_THINKHAPPY);
-                        admEscenas.liberarEscenaMenu();
-                        break;
-                    default:
-                        return false;
-                    */
                 }
                 return true;
             }
