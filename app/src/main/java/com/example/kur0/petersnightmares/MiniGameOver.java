@@ -38,7 +38,11 @@ public class MiniGameOver extends EscenaBase {
 
     @Override
     public void onBackKeyPressed() {
-
+        // Regresar al MENU principal
+        admRecursos.camara.setHUD(null);
+        admEscenas.crearEscenaMenu();
+        admEscenas.setEscena(TipoEscena.ESCENA_MENU);
+        admEscenas.liberarEscenaJuegoThink();
     }
     @Override
     public void liberarEscena() {

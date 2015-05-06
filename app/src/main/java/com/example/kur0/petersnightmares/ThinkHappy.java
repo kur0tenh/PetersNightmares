@@ -141,7 +141,7 @@ public class ThinkHappy extends EscenaBase {
         attachChild(barraTiempo);
     }
     public void onFinishedLevel(){
-        //admRecursos.camara.setHUD(null);
+        admRecursos.camara.setHUD(null);
         admEscenas.crearEscenaMiniGameOver();
         admEscenas.setEscena(TipoEscena.ESCENA_MINIGAMEOVER);
         admEscenas.liberarEscenaJuegoThink();
