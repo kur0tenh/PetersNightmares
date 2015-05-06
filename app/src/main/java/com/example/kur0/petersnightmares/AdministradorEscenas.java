@@ -87,6 +87,9 @@ public class AdministradorEscenas
             case ESCENA_OPCIONES:
                 setEscenaBase(escenaOpciones);
                 break;
+            case ESCENA_MINIGAMEOVER:
+                setEscenaBase(escenaMiniGameOver);
+                break;
 
         }
     }
@@ -191,7 +194,7 @@ public class AdministradorEscenas
         admRecursos.cargarRecursosMiniGameOver();
         escenaMiniGameOver = new MiniGameOver();
     }
-    public void liberarRecursosMiniGameOver(){
+    public void liberarEscenaMiniGameOver(){
         admRecursos.liberarRecursosMiniGameOver();
         escenaMiniGameOver.liberarEscena();
         escenaMiniGameOver = null;

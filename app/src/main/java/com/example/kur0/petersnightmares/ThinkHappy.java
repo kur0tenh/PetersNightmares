@@ -133,12 +133,19 @@ public class ThinkHappy extends EscenaBase {
                     //Cambiara a otra escena cuando existan los demas minigames
 
 
-                    onBackKeyPressed();
+                    onFinishedLevel();
                 }
 
             }
         };
         attachChild(barraTiempo);
+    }
+    public void onFinishedLevel(){
+        //admRecursos.camara.setHUD(null);
+        admEscenas.crearEscenaMiniGameOver();
+        admEscenas.setEscena(TipoEscena.ESCENA_MINIGAMEOVER);
+        admEscenas.liberarEscenaJuegoThink();
+
     }
     @Override
     public void onBackKeyPressed() {

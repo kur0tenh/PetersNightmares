@@ -93,7 +93,7 @@ public class DodgeResponsibility extends EscenaBase implements SensorEventListen
                 // Prueba los límites de la pantalla
                 if (px<=-ControlJuego.ANCHO_CAMARA/2) {
                     //Cambiara a otra escena cuando existan los demas minigames
-                    onBackKeyPressed();
+                    onFinishedLevel();
                 }
 
             }
@@ -180,7 +180,7 @@ public class DodgeResponsibility extends EscenaBase implements SensorEventListen
                 }else {
                     if(letra.collidesWith(peter)){
                         letra.detachSelf();
-                        onBackKeyPressed();
+                        onFinishedLevel();
                     }
                 }
             }
@@ -222,7 +222,13 @@ public class DodgeResponsibility extends EscenaBase implements SensorEventListen
         admEscenas.setEscena(TipoEscena.ESCENA_MENU);
         admEscenas.liberarEscenaDodge();
     }
+    public void onFinishedLevel(){
+        //admRecursos.camara.setHUD(null);
+        admEscenas.crearEscenaMiniGameOver();
+        admEscenas.setEscena(TipoEscena.ESCENA_MINIGAMEOVER);
+        admEscenas.liberarEscenaDodge();
 
+    }
     @Override
     public TipoEscena getTipoEscena() {
         return TipoEscena.ESCENA_DODGERESPONSIBILITY;

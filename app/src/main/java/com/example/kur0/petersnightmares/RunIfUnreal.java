@@ -112,7 +112,7 @@ public class RunIfUnreal extends EscenaBase
                 else{
                     if (disparoEnemigo.collidesWith(peter) ) {
 
-                        onBackKeyPressed();
+                        onFinishedLevel();
                     }
                 }
             }
@@ -144,7 +144,7 @@ public class RunIfUnreal extends EscenaBase
 
 
                 if (peter.collidesWith(enemigo) ) {
-                    onBackKeyPressed();
+                    onFinishedLevel();
                 }
             }
         };
@@ -260,14 +260,13 @@ public class RunIfUnreal extends EscenaBase
                 // Prueba los límites de la pantalla
                 if (px<=-ControlJuego.ANCHO_CAMARA/2) {
                     //Cambiara a otra escena cuando existan los demas minigames
-                    onBackKeyPressed();
+                    onFinishedLevel();
                 }
 
             }
         };
         attachChild(barraTiempo);
     }
-
     // El usuario oprime el botón de BACK; regresar al menú principal
     @Override
     public void onBackKeyPressed() {
@@ -276,6 +275,13 @@ public class RunIfUnreal extends EscenaBase
         admEscenas.crearEscenaMenu();
         admEscenas.setEscena(TipoEscena.ESCENA_MENU);
         admEscenas.liberarEscenaJuego();
+    }
+    public void onFinishedLevel(){
+        //admRecursos.camara.setHUD(null);
+        admEscenas.crearEscenaMiniGameOver();
+        admEscenas.setEscena(TipoEscena.ESCENA_MINIGAMEOVER);
+        admEscenas.liberarEscenaJuegoThink();
+
     }
 
 
