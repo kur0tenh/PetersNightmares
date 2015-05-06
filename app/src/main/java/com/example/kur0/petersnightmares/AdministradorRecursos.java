@@ -200,8 +200,8 @@ public class AdministradorRecursos
             Log.d("cargarRecursosAcercaDe", "No se puede cargar la barra de tiempo");
         }
         // cargar la imagen de la Spritesheet Letras
-        texturaImagenLetras = new BuildableBitmapTextureAtlas(actividadJuego.getTextureManager(),2620,110);
-        regionImagenLetras = BitmapTextureAtlasTextureRegionFactory.createTiledFromAsset(texturaImagenLetras, actividadJuego.getAssets(), "DodgeResponsibility/Letras.png", 25, 1);
+        texturaImagenLetras = new BuildableBitmapTextureAtlas(actividadJuego.getTextureManager(),681,106);
+        regionImagenLetras = BitmapTextureAtlasTextureRegionFactory.createTiledFromAsset(texturaImagenLetras, actividadJuego.getAssets(), "DodgeResponsibility/Letras.png", 13, 2);
         try {
             texturaImagenLetras.build(new BlackPawnTextureAtlasBuilder<IBitmapTextureAtlasSource, BitmapTextureAtlas>(0,0,0));
         } catch (ITextureAtlasBuilder.TextureAtlasBuilderException e) {

@@ -121,8 +121,8 @@ public class DodgeResponsibility extends EscenaBase implements SensorEventListen
                 float px =puntero.getX()+dxPuntero;
                 puntero.setPosition(px,this.getY());
                 time = time+pSecondsElapsed;
-                float k = (float) Math.random()*3;
-                if (time<k&& time>1){
+
+                if (time>=1||time>=2||time>=3){
                     long frames[] = new long[16];
                     for(int i=0; i<frames.length; i++) {
                         frames[i] = 60;
@@ -147,7 +147,7 @@ public class DodgeResponsibility extends EscenaBase implements SensorEventListen
     private void agregarLetra(){
         TiledTextureRegion regionLetra = admRecursos.regionImagenLetras;
         //selecciona una letra de manera aleatoria
-        int h = ((int)(Math.random()*25));
+        int h = ((int)(Math.random()*26));
         regionLetra.setCurrentTileIndex(h);
         letra = new Sprite(puntero.getX(),720,regionLetra,admRecursos.vbom){
             @Override
