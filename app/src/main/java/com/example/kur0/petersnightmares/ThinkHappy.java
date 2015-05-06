@@ -144,8 +144,8 @@ public class ThinkHappy extends EscenaBase {
         //admRecursos.camara.setHUD(null);
         admEscenas.crearEscenaMiniGameOver();
         admEscenas.setEscena(TipoEscena.ESCENA_MINIGAMEOVER);
-        //admEscenas.liberarEscenaJuegoThink();
-        this.liberarEscena();
+        admEscenas.liberarEscenaJuegoThink();
+
     }
     @Override
     public void onBackKeyPressed() {
