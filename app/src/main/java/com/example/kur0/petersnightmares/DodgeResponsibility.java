@@ -154,7 +154,7 @@ public class DodgeResponsibility extends EscenaBase implements SensorEventListen
     }
 
     // movimiento del proyectil
-    int dyLetra = 13;
+    int dyLetra = 20;
     //Pone un proyectil
     private void agregarLetra(){
         TiledTextureRegion regionLetra = admRecursos.regionImagenLetras;
@@ -225,8 +225,9 @@ public class DodgeResponsibility extends EscenaBase implements SensorEventListen
     public void onFinishedLevel(){
         admRecursos.camara.setHUD(null);
         admEscenas.crearEscenaMiniGameOver();
-        MiniGameOver.lastLevel = "Dodge";
+
         admEscenas.setEscena(TipoEscena.ESCENA_MINIGAMEOVER);
+        MiniGameOver.lastLevel = "Dodge";
         admEscenas.liberarEscenaDodge();
 
 

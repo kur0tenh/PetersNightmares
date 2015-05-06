@@ -303,8 +303,9 @@ public class RunIfUnreal extends EscenaBase
     public void onFinishedLevel(){
         admRecursos.camara.setHUD(null);
         admEscenas.crearEscenaMiniGameOver();
-        MiniGameOver.lastLevel = "Run";
+
         admEscenas.setEscena(TipoEscena.ESCENA_MINIGAMEOVER);
+        MiniGameOver.lastLevel = "Run";
         admEscenas.liberarEscenaJuego();
 
     }

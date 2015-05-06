@@ -143,8 +143,9 @@ public class ThinkHappy extends EscenaBase {
     public void onFinishedLevel(){
         admRecursos.camara.setHUD(null);
         admEscenas.crearEscenaMiniGameOver();
-        MiniGameOver.lastLevel = "Think";
+
         admEscenas.setEscena(TipoEscena.ESCENA_MINIGAMEOVER);
+        MiniGameOver.lastLevel = "Think";
         admEscenas.liberarEscenaJuegoThink();
 
     }
