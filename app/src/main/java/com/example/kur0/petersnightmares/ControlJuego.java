@@ -1,6 +1,7 @@
 package com.example.kur0.petersnightmares;
 
 
+import android.graphics.Point;
 import android.view.KeyEvent;
 
 import org.andengine.engine.camera.Camera;
@@ -8,6 +9,7 @@ import org.andengine.engine.handler.timer.ITimerCallback;
 import org.andengine.engine.handler.timer.TimerHandler;
 import org.andengine.engine.options.EngineOptions;
 import org.andengine.engine.options.ScreenOrientation;
+import org.andengine.engine.options.resolutionpolicy.FillResolutionPolicy;
 import org.andengine.engine.options.resolutionpolicy.RatioResolutionPolicy;
 import org.andengine.entity.scene.Scene;
 import org.andengine.entity.util.FPSCounter;
@@ -22,6 +24,7 @@ import java.io.IOException;
 public class ControlJuego extends SimpleBaseGameActivity
 {
     // Dimensiones de la cámara
+
     public static final int ANCHO_CAMARA = 1280;
     public static final int ALTO_CAMARA = 720;
     public static int vidas = 3;
@@ -32,9 +35,11 @@ public class ControlJuego extends SimpleBaseGameActivity
 
     @Override
     public EngineOptions onCreateEngineOptions() {
+
+
         camara = new Camera(0,0,ANCHO_CAMARA,ALTO_CAMARA);
-        return new EngineOptions(true, ScreenOrientation.LANDSCAPE_FIXED,
-                new RatioResolutionPolicy(ANCHO_CAMARA,ALTO_CAMARA),camara);
+
+        return new EngineOptions(true, ScreenOrientation.LANDSCAPE_FIXED, /*new RatioResolutionPolicy(ANCHO_CAMARA,ALTO_CAMARA),camara)*/ new FillResolutionPolicy(), camara);
     }
 
     @Override

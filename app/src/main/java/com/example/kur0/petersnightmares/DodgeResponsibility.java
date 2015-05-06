@@ -5,6 +5,7 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import java.util.Random;
 
@@ -13,10 +14,6 @@ import org.andengine.entity.primitive.Rectangle;
 import org.andengine.entity.scene.background.Background;
 import org.andengine.entity.sprite.AnimatedSprite;
 import org.andengine.entity.sprite.Sprite;
-import org.andengine.opengl.texture.ITexture;
-import org.andengine.opengl.texture.bitmap.AssetBitmapTexture;
-import org.andengine.opengl.texture.region.ITextureRegion;
-import org.andengine.opengl.texture.region.TextureRegionFactory;
 import org.andengine.opengl.texture.region.TiledTextureRegion;
 import org.andengine.opengl.util.GLState;
 import org.andengine.util.adt.color.Color;
@@ -103,7 +100,7 @@ public class DodgeResponsibility extends EscenaBase implements SensorEventListen
                 super.onManagedUpdate(pSecondsElapsed);
                 double dispara = Math.random()*100;
                 // Mueve con dx
-                float px = (float)(puntero.getX()+dxPuntero);
+                float px =puntero.getX()+dxPuntero;
                 puntero.setPosition(px,this.getY());
                 time = time+pSecondsElapsed;
                 if (time>1){
@@ -139,7 +136,7 @@ public class DodgeResponsibility extends EscenaBase implements SensorEventListen
             protected void onManagedUpdate(float pSecondsElapsed) {
                 super.onManagedUpdate(pSecondsElapsed);
                 // Mueve con dy
-                float py = (float)(letra.getY()-dyLetra);
+                float py =letra.getY()-dyLetra;
                 letra.setPosition(this.getX(),py);
                 if (letra.getY() < 0) {
                     letra.detachSelf();
@@ -160,6 +157,7 @@ public class DodgeResponsibility extends EscenaBase implements SensorEventListen
 
     private void crearPeter() {
         TiledTextureRegion regionPeter = admRecursos.regionImagenCabezaPeter;
+
         peter = new AnimatedSprite(640, 70, regionPeter, admRecursos.vbom){
             @Override
             protected void preDraw(GLState pGLState, Camera pCamera) {
