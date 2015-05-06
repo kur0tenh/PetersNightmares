@@ -267,7 +267,6 @@ public class RunIfUnreal extends EscenaBase
         };
         attachChild(barraTiempo);
     }
-
     // El usuario oprime el botón de BACK; regresar al menú principal
     @Override
     public void onBackKeyPressed() {
