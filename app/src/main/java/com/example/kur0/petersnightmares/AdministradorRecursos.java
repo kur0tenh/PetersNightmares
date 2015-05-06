@@ -446,10 +446,11 @@ public class AdministradorRecursos
         try {
             texturaMiniGameOver = new AssetBitmapTexture(actividadJuego.getTextureManager(),actividadJuego.getAssets(), "MiniGameOver/MiniGameOverBack.jpg");
             regionMiniGameOver = TextureRegionFactory.extractFromTexture(texturaMiniGameOver);
-            texturaMiniGameOver.load();
+
         }catch (IOException e){
-            Log.d("cargarRecursosMiniGameOver", "No se pueden cargar las imágenes");
+            Log.d("cargarRecursosMiniGameOver", "No se pueden cargar el fondo");
         }
+        texturaMiniGameOver.load();
         texturaVidas = new BuildableBitmapTextureAtlas(actividadJuego.getTextureManager(),400,400);
         regionVidas = BitmapTextureAtlasTextureRegionFactory.createTiledFromAsset(texturaVidas, actividadJuego, "MiniGameOver/Lifes.png", 4, 4);
         try {

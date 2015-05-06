@@ -20,7 +20,7 @@ public class EscenaScores extends EscenaBase
     private Sprite spriteFondo;
     private ButtonSprite spriteBtnRegreso;    // El botón de BACK sin imagen de 'presionado'
     // Un fondo para el botón regresar
-    private Rectangle fondoBtn;
+
 
     @Override
     public void crearEscena() {
