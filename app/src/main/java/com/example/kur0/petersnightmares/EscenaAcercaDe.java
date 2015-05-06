@@ -14,7 +14,7 @@ import org.andengine.opengl.util.GLState;
  */
 public class EscenaAcercaDe extends EscenaBase
 {
-    private Sprite spriteFondo; //(el fondo de la escena, estático)
+    private Sprite spriteFondo; //(el fondo de la escena, estático
     private ButtonSprite spriteBtnRegreso;    // El botón de BACK sin imagen de 'presionado'
     // Un fondo para el botón regresar
     private Rectangle fondoBtn;

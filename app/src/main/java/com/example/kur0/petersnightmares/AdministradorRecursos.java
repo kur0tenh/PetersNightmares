@@ -93,6 +93,9 @@ public class AdministradorRecursos
     public TiledTextureRegion regionImagenPuzzle;
 
     //----------------------Escena Juego Dodge your responsibility-------
+    // Fondo
+    private ITexture texturaFondoDodge;
+    public ITextureRegion regionFondoDodge;
     // Letras Que Caen
     private BuildableBitmapTextureAtlas texturaImagenLetras;
     public TiledTextureRegion regionImagenLetras;
@@ -180,6 +183,14 @@ public class AdministradorRecursos
     //*** Recursos de la pantalla de DodgeResponsability
     public void cargarRecursosDodge() {
         // Carga la barra de tiempo
+        try {
+            texturaFondoDodge = new AssetBitmapTexture(actividadJuego.getTextureManager(), actividadJuego.getAssets(), "DodgeResponsibility/FondoDodge.png");
+            regionFondoDodge = TextureRegionFactory.extractFromTexture(texturaFondoDodge);
+            texturaFondoDodge.load();
+        }
+        catch (IOException e){
+            Log.d("cargarRecursosDodge", "No se puede cargar el fondo");
+        }
         try{
             texturaBarraTiempo = new AssetBitmapTexture(actividadJuego.getTextureManager(),actividadJuego.getAssets(), "LVLGeneral/BarraTiempo.png");
             regionBarraTiempo = TextureRegionFactory.extractFromTexture(texturaBarraTiempo);
@@ -189,8 +200,8 @@ public class AdministradorRecursos
             Log.d("cargarRecursosAcercaDe", "No se puede cargar la barra de tiempo");
         }
         // cargar la imagen de la Spritesheet Letras
-        texturaImagenLetras = new BuildableBitmapTextureAtlas(actividadJuego.getTextureManager(),1146,884);
-        regionImagenLetras = BitmapTextureAtlasTextureRegionFactory.createTiledFromAsset(texturaImagenLetras, actividadJuego.getAssets(), "DodgeResponsibility/Letras.png", 8, 3);
+        texturaImagenLetras = new BuildableBitmapTextureAtlas(actividadJuego.getTextureManager(),2620,110);
+        regionImagenLetras = BitmapTextureAtlasTextureRegionFactory.createTiledFromAsset(texturaImagenLetras, actividadJuego.getAssets(), "DodgeResponsibility/Letras.png", 25, 1);
         try {
             texturaImagenLetras.build(new BlackPawnTextureAtlasBuilder<IBitmapTextureAtlasSource, BitmapTextureAtlas>(0,0,0));
         } catch (ITextureAtlasBuilder.TextureAtlasBuilderException e) {
