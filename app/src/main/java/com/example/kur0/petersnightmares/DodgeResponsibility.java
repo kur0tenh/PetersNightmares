@@ -247,21 +247,16 @@ public class DodgeResponsibility extends EscenaBase implements SensorEventListen
     @Override
     public void onSensorChanged(SensorEvent event) {
         // Leer los valores del sensor y en base a ellos, mover el matamoscas
-
         // event.values es un arreglo de tipo float con 3 datos
         // cada elemento es la aceleracion medida en x,y,z
-
-
-
-
         //float pulgadas = (metrics.widthPixels)/(metrics.densityDpi);
         float nuevaX = peter.getX() + event.values[1] * 5;
-        if (nuevaX < ControlJuego.ANCHO_CAMARA && nuevaX >= 0 && isTablet(admRecursos.actividadJuego)) {
-            peter.setY(nuevaX);
-            Log.d("onSensorChanged", "es tablet");
+        float nuevaY = peter.getX() - event.values[0] * 5;
+        if (nuevaY < ControlJuego.ANCHO_CAMARA && nuevaY >= 0 && isTablet(admRecursos.actividadJuego)==true) {
+            peter.setX(nuevaY);
+
         } else if (nuevaX < ControlJuego.ANCHO_CAMARA && nuevaX >= 0 && isTablet(admRecursos.actividadJuego) == false)  {
             peter.setX(nuevaX);
-            Log.d("onSensorChanged", "es telepono");
         }
     }
 
