@@ -109,7 +109,7 @@ public class RunIfUnreal extends EscenaBase
                 }
                 else{
                     if (disparoEnemigo.collidesWith(peter) ) {
-
+                        ControlJuego.vidas--;
                         onFinishedLevel();
                     }
                 }
@@ -142,6 +142,7 @@ public class RunIfUnreal extends EscenaBase
 
 
                 if (peter.collidesWith(enemigo) ) {
+                    ControlJuego.vidas--;
                     onFinishedLevel();
                 }
             }

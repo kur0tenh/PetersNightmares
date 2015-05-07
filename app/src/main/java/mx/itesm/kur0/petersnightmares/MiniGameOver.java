@@ -31,6 +31,7 @@ public class MiniGameOver extends EscenaBase {
     private Sprite spriteFondo;
     private AnimatedSprite vidas;
     private Text t;
+    private Text V;
     private Font fuente;
 
 
@@ -60,7 +61,7 @@ public class MiniGameOver extends EscenaBase {
     }
     private int dx = 5;
     private void manejadorDeTiempo(){
-        barraTiempo = new Sprite(ControlJuego.ANCHO_CAMARA/2,(ControlJuego.ALTO_CAMARA)-20,admRecursos.regionBarraTiempoMini,admRecursos.vbom) {
+        barraTiempo = new Sprite(ControlJuego.ANCHO_CAMARA/2,(ControlJuego.ALTO_CAMARA)+20,admRecursos.regionBarraTiempoMini,admRecursos.vbom) {
             @Override
             protected void onManagedUpdate(float pSecondsElapsed) {
                 super.onManagedUpdate(pSecondsElapsed);
@@ -70,7 +71,7 @@ public class MiniGameOver extends EscenaBase {
                 float px = barraTiempo.getX()-dx;
                 barraTiempo.setPosition(px,this.getY());
                 // Prueba los límites de la pantalla
-                if (px<=-ControlJuego.ANCHO_CAMARA/2) {
+                if (px<=-ControlJuego.ANCHO_CAMARA/2&&ControlJuego.vidas>0) {
 
                     ArrayList<TipoEscena> foo = new ArrayList<TipoEscena>();
                     //TipoEscena[] foo = [TipoEscena.ESCENA_RUNIFUNREAL,TipoEscena.ESCENA_THINKHAPPY,TipoEscena.ESCENA_DODGERESPONSIBILITY];
@@ -132,6 +133,8 @@ public class MiniGameOver extends EscenaBase {
     private void cargarTexto(){
 
         t = new Text(625,450,fuente," " + ControlJuego.score, 100, admRecursos.vbom);
+        V = new Text(625,300,fuente,"Vidas: " + ControlJuego.vidas, 100, admRecursos.vbom);
         attachChild(t);
+        attachChild(V);
     }
 }

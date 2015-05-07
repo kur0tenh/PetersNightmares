@@ -182,6 +182,7 @@ public class DodgeResponsibility extends EscenaBase implements SensorEventListen
                     ControlJuego.score = (int)(Math.random()*10);
                 }else {
                     if(letra.collidesWith(peter)){
+                        ControlJuego.vidas--;
                         letra.detachSelf();
                         onFinishedLevel();
                     }
