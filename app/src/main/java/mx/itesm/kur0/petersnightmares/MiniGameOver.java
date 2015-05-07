@@ -26,7 +26,8 @@ import java.util.ArrayList;
  * Created by kur0
  */
 public class MiniGameOver extends EscenaBase {
-    public static String lastLevel;
+    // barra de tiempo
+    private Sprite barraTiempo;
     private Sprite spriteFondo;
     private AnimatedSprite vidas;
     private Text t;
@@ -35,6 +36,7 @@ public class MiniGameOver extends EscenaBase {
 
     @Override
     public void crearEscena() {
+        manejadorDeTiempo();
         spriteFondo = new Sprite(0,0, admRecursos.regionMiniGameOver,admRecursos.vbom) {
             @Override
             protected void preDraw(GLState pGLState, Camera pCamera) {
@@ -56,12 +58,56 @@ public class MiniGameOver extends EscenaBase {
         cargarFuente();
         cargarTexto();
     }
+    private int dx = 5;
+    private void manejadorDeTiempo(){
+        barraTiempo = new Sprite(ControlJuego.ANCHO_CAMARA/2,(ControlJuego.ALTO_CAMARA)-20,admRecursos.regionBarraTiempo,admRecursos.vbom) {
+            @Override
+            protected void onManagedUpdate(float pSecondsElapsed) {
+                super.onManagedUpdate(pSecondsElapsed);
+                // Esta barra no tiene animación
+
+                // Mueve las coordenadas restando dx
+                float px = barraTiempo.getX()-dx;
+                barraTiempo.setPosition(px,this.getY());
+                // Prueba los límites de la pantalla
+                if (px<=-ControlJuego.ANCHO_CAMARA/2) {
+
+                    ArrayList<TipoEscena> foo = new ArrayList<TipoEscena>();
+                    //TipoEscena[] foo = [TipoEscena.ESCENA_RUNIFUNREAL,TipoEscena.ESCENA_THINKHAPPY,TipoEscena.ESCENA_DODGERESPONSIBILITY];
+                    foo.add(TipoEscena.ESCENA_RUNIFUNREAL);
+                    foo.add(TipoEscena.ESCENA_THINKHAPPY);
+                    foo.add(TipoEscena.ESCENA_DODGERESPONSIBILITY);
+                    int var = ((int)(Math.random()*3))*1;
+                    //Log.d("EscenaMenu,"")
+                    TipoEscena m = foo.get(var);
+
+                    if(var == 0){
+                        admEscenas.crearEscenaJuego();
+                    }else{
+                        if(var == 1){
+                            admEscenas.crearEscenaJuegoThink();
+                        }
+                        else{
+                            if(var==2){
+                                admEscenas.crearEscenaDodge();
+                            }
+                        }
+                    }
+                    admEscenas.liberarEscenaMiniGameOver();
+                    admEscenas.setEscena(m);
+
+                }
+
+            }
+        };
+        attachChild(barraTiempo);
+    }
 
 
     @Override
     public void onBackKeyPressed() {
         // Regresar al MENU principal
-        admRecursos.camara.setHUD(null);
+
         admEscenas.crearEscenaMenu();
         admEscenas.setEscena(TipoEscena.ESCENA_MENU);
         admEscenas.liberarEscenaMiniGameOver();

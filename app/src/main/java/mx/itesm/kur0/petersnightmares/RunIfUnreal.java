@@ -281,6 +281,7 @@ public class RunIfUnreal extends EscenaBase
                 barraTiempo.setPosition(px,this.getY());
                 // Prueba los límites de la pantalla
                 if (px<=-ControlJuego.ANCHO_CAMARA/2) {
+
                     ControlJuego.score += (int)Math.abs(Math.random() * 100);
                     onFinishedLevel();
 
@@ -294,18 +295,16 @@ public class RunIfUnreal extends EscenaBase
     @Override
     public void onBackKeyPressed() {
         // Regresar al MENU principal
-        admRecursos.camara.setHUD(null);
+
         admEscenas.crearEscenaMenu();
         admEscenas.setEscena(TipoEscena.ESCENA_MENU);
         admEscenas.liberarEscenaJuego();
         ControlJuego.score = 0;
     }
     public void onFinishedLevel(){
-        admRecursos.camara.setHUD(null);
+
         admEscenas.crearEscenaMiniGameOver();
         admEscenas.setEscena(TipoEscena.ESCENA_MINIGAMEOVER);
-
-
         admEscenas.liberarEscenaJuego();
 
 

@@ -120,7 +120,7 @@ public class ThinkHappy extends EscenaBase {
         attachChild(barraTiempo);
     }
     public void onFinishedLevel(){
-        admRecursos.camara.setHUD(null);
+
         admEscenas.crearEscenaMiniGameOver();
         admEscenas.setEscena(TipoEscena.ESCENA_MINIGAMEOVER);
         admEscenas.liberarEscenaJuegoThink();
@@ -130,7 +130,7 @@ public class ThinkHappy extends EscenaBase {
     @Override
     public void onBackKeyPressed() {
         // Regresar al MENU principal
-        admRecursos.camara.setHUD(null);
+
         admEscenas.crearEscenaMenu();
         admEscenas.setEscena(TipoEscena.ESCENA_MENU);
         admEscenas.liberarEscenaJuegoThink();
