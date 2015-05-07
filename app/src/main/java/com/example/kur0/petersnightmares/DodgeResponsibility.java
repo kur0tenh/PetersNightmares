@@ -51,6 +51,7 @@ public class DodgeResponsibility extends EscenaBase implements SensorEventListen
     private SensorManager admSensores; // Administra TODOS los sensores del dispositivo
     private Sensor sensorAceleracion;      // El sensor específico de gravedad
 
+
     public boolean isTablet(Context context) {
         boolean xlarge = ((context.getResources().getConfiguration().screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK) == Configuration.SCREENLAYOUT_SIZE_XLARGE);
         boolean large = ((context.getResources().getConfiguration().screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK) == Configuration.SCREENLAYOUT_SIZE_LARGE);
@@ -228,8 +229,7 @@ public class DodgeResponsibility extends EscenaBase implements SensorEventListen
         MiniGameOver.lastLevel = "Dodge";
         admEscenas.setEscena(TipoEscena.ESCENA_MINIGAMEOVER);
         admEscenas.liberarEscenaDodge();
-
-
+        ControlJuego.score = ControlJuego.score+100;
     }
     @Override
     public TipoEscena getTipoEscena() {

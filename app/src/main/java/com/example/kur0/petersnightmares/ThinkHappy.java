@@ -147,6 +147,7 @@ public class ThinkHappy extends EscenaBase {
         admEscenas.setEscena(TipoEscena.ESCENA_MINIGAMEOVER);
         MiniGameOver.lastLevel = "Think";
         admEscenas.liberarEscenaJuegoThink();
+        ControlJuego.score = ControlJuego.score+100;
 
     }
     @Override

@@ -27,6 +27,7 @@ public class ControlJuego extends SimpleBaseGameActivity
     public static final int ANCHO_CAMARA = 1280;
     public static final int ALTO_CAMARA = 720;
     public static int vidas = 3;
+    public static int score = 0;
     // La cámara
     private Camera camara;
     // El administrador de escenas

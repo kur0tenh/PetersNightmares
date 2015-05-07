@@ -40,8 +40,6 @@ public class RunIfUnreal extends EscenaBase
     private boolean peterSaltando;
     // Sprite disparo enemigo
     private  AnimatedSprite disparoEnemigo;
-    // Score
-    private  int score = 0;
 
     @Override
     public void crearEscena() {
@@ -107,7 +105,6 @@ public class RunIfUnreal extends EscenaBase
                 if(disparoEnemigo.getX()>= 1200){
 
                     disparoEnemigo.detachSelf();
-                    score+=10;
                 }
                 else{
                     if (disparoEnemigo.collidesWith(peter) ) {

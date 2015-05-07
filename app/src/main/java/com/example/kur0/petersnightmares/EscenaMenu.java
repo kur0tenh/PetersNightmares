@@ -4,8 +4,12 @@ import org.andengine.audio.music.Music;
 import org.andengine.audio.music.MusicFactory;
 import org.andengine.audio.sound.Sound;
 import org.andengine.audio.sound.SoundFactory;
+
+import android.graphics.Typeface;
+import android.transition.Scene;
 import android.util.Log;
 
+import org.andengine.entity.text.Text;
 import org.andengine.engine.camera.Camera;
 import org.andengine.entity.scene.background.SpriteBackground;
 import org.andengine.entity.scene.menu.MenuScene;
@@ -14,7 +18,13 @@ import org.andengine.entity.scene.menu.item.SpriteMenuItem;
 import org.andengine.entity.scene.menu.item.decorator.ScaleMenuItemDecorator;
 import org.andengine.entity.sprite.ButtonSprite;
 import org.andengine.entity.sprite.Sprite;
+import org.andengine.opengl.font.IFont;
 import org.andengine.opengl.util.GLState;
+import org.andengine.opengl.font.Font;
+import org.andengine.opengl.font.FontFactory;
+import org.andengine.opengl.texture.ITexture;
+import android.graphics.Color;
+import org.andengine.opengl.texture.atlas.bitmap.BitmapTextureAtlas;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -39,8 +49,6 @@ public class EscenaMenu extends EscenaBase
     private final int OPCION_JUGAR = 1;
     private final int OPCION_OPCIONES = 2;
 
-
-
     @Override
     public void crearEscena() {
         // Creamos el sprite de manera óptima
@@ -62,6 +70,7 @@ public class EscenaMenu extends EscenaBase
         // *** Otra forma de mostrar opciones de menú
         agregarMenu();
         cargarSonidos();
+
     }
 
     //Musica
@@ -93,7 +102,6 @@ public class EscenaMenu extends EscenaBase
         final IMenuItem opcionJugarDos = new ScaleMenuItemDecorator(new SpriteMenuItem(OPCION_OPCIONES,
                 admRecursos.regionBotonOpciones,admRecursos.vbom),1.5f,1);
         // Otra opción, escena con física
-
 
         // Agrega las opciones al menú
         menu.addMenuItem(opcionAcercaDe);
@@ -166,6 +174,7 @@ public class EscenaMenu extends EscenaBase
     public void onBackKeyPressed() {
         // Salir del juego
         musicaFondo.stop();
+        ControlJuego.score = 0;
     }
 
     @Override

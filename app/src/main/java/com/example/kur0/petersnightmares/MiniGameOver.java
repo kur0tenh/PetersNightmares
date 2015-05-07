@@ -1,5 +1,8 @@
 package com.example.kur0.petersnightmares;
 
+import android.graphics.Color;
+import android.graphics.Typeface;
+
 import org.andengine.audio.music.Music;
 import org.andengine.audio.music.MusicFactory;
 import org.andengine.audio.sound.Sound;
@@ -8,6 +11,12 @@ import org.andengine.engine.camera.Camera;
 import org.andengine.entity.scene.background.SpriteBackground;
 import org.andengine.entity.sprite.AnimatedSprite;
 import org.andengine.entity.sprite.Sprite;
+import org.andengine.entity.text.Text;
+import org.andengine.opengl.font.Font;
+import org.andengine.opengl.font.FontFactory;
+import org.andengine.opengl.font.IFont;
+import org.andengine.opengl.texture.ITexture;
+import org.andengine.opengl.texture.atlas.bitmap.BitmapTextureAtlas;
 import org.andengine.opengl.util.GLState;
 
 import java.util.ArrayList;
@@ -20,6 +29,9 @@ public class MiniGameOver extends EscenaBase {
     public static String lastLevel;
     private Sprite spriteFondo;
     private AnimatedSprite vidas;
+    private Text t;
+    private Font fuente;
+
 
     @Override
     public void crearEscena() {
@@ -33,6 +45,7 @@ public class MiniGameOver extends EscenaBase {
             protected void onManagedUpdate(float pSecondsElapsed) {
                 
             }
+
         };
 
         // Configuración de la imagen
@@ -40,6 +53,8 @@ public class MiniGameOver extends EscenaBase {
         SpriteBackground fondo = new SpriteBackground(0,0,0,spriteFondo);
         setBackground(fondo);
         setBackgroundEnabled(true);
+        cargarFuente();
+        cargarTexto();
     }
     public void nextLevel() {
         ArrayList<TipoEscena> foo = new ArrayList<TipoEscena>();
@@ -107,4 +122,14 @@ public class MiniGameOver extends EscenaBase {
         return TipoEscena.ESCENA_MINIGAMEOVER;
     }
 
+
+    private void cargarFuente(){
+        fuente = FontFactory.create(admRecursos.engine.getFontManager(), admRecursos.engine.getTextureManager(), 1024, 1024, Typeface.create(Typeface.DEFAULT, Typeface.BOLD), 100, Color.WHITE );
+        fuente.load();
+    }
+
+    private void cargarTexto(){
+        t = new Text(625,450,fuente,"Score: " + ControlJuego.score, 100, admRecursos.vbom);
+        attachChild(t);
+    }
 }
