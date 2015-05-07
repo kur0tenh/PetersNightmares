@@ -84,7 +84,7 @@ public class ThinkHappy extends EscenaBase {
             }
         }
         if(c.size() == lista.size()){
-            ControlJuego.score = (int)Math.abs(Math.random() * 100);
+            ControlJuego.score += (int)Math.abs(Math.random() * 100);
             fin = true;
         }
         return fin;
@@ -93,7 +93,7 @@ public class ThinkHappy extends EscenaBase {
 
 
     // Constante para mover la barra de tiempo
-    private int dx = 1;
+    private int dx = 2;
     // Este metodo controla la barra de tiempo
 
     private void manejadorDeTiempo(){
@@ -110,9 +110,13 @@ public class ThinkHappy extends EscenaBase {
                 //las secciones esten en el angulo correcto
 
                 // Prueba los límites de la pantalla
-                if (px<=-ControlJuego.ANCHO_CAMARA/2||finalizar()) {
-
+                if (px<=-ControlJuego.ANCHO_CAMARA/2) {
+                    ControlJuego.vidas--;
                     onFinishedLevel();
+                }else{
+                    if(finalizar()){
+                        onFinishedLevel();
+                    }
                 }
 
             }
@@ -135,6 +139,7 @@ public class ThinkHappy extends EscenaBase {
         admEscenas.setEscena(TipoEscena.ESCENA_MENU);
         admEscenas.liberarEscenaJuegoThink();
         ControlJuego.score = 0;
+        ControlJuego.vidas = 3;
 
     }
 

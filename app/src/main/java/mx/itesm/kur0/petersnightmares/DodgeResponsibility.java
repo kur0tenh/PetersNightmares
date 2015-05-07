@@ -1,35 +1,20 @@
 package mx.itesm.kur0.petersnightmares;
 
-import org.andengine.audio.music.Music;
-import org.andengine.audio.music.MusicFactory;
-import org.andengine.audio.sound.Sound;
-import org.andengine.audio.sound.SoundFactory;
+
 import android.content.Context;
 import android.content.res.Configuration;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
-import android.telephony.TelephonyManager;
-import android.util.DisplayMetrics;
 import android.util.Log;
-import android.view.Display;
-import android.view.WindowManager;
-
-import java.util.Random;
-
 import org.andengine.engine.camera.Camera;
-import org.andengine.entity.primitive.Rectangle;
-import org.andengine.entity.scene.background.Background;
 import org.andengine.entity.scene.background.SpriteBackground;
 import org.andengine.entity.sprite.AnimatedSprite;
 import org.andengine.entity.sprite.Sprite;
 import org.andengine.opengl.texture.region.TiledTextureRegion;
 import org.andengine.opengl.util.GLState;
-import org.andengine.util.adt.color.Color;
 
-import java.io.IOException;
-import java.util.ArrayList;
 /**
  * Created by Anuar
  */
@@ -79,7 +64,7 @@ public class DodgeResponsibility extends EscenaBase implements SensorEventListen
         inicializarSensor();
     }
     // Constante para mover la barra de tiempo
-    private int dx = 1;
+    private int dx = 2;
     // Este metodo controla la barra de tiempo
     private void manejadorDeTiempo(){
         barraTiempo = new Sprite(ControlJuego.ANCHO_CAMARA/2,(ControlJuego.ALTO_CAMARA)-20,admRecursos.regionBarraTiempoDodge,admRecursos.vbom) {
@@ -94,7 +79,7 @@ public class DodgeResponsibility extends EscenaBase implements SensorEventListen
                 // Prueba los límites de la pantalla
                 if (px<=-ControlJuego.ANCHO_CAMARA/2) {
 
-                    ControlJuego.score = (int)Math.abs(Math.random()*100);
+                    ControlJuego.score+= (int)Math.abs(Math.random()*100);
                     onFinishedLevel();
                 }
 
@@ -179,7 +164,7 @@ public class DodgeResponsibility extends EscenaBase implements SensorEventListen
                 letra.setPosition(this.getX(), py);
                 if (letra.getY() < 0) {
                     letra.detachSelf();
-                    ControlJuego.score = (int)(Math.random()*10);
+                    ControlJuego.score+= (int)Math.abs(Math.random() * 10);
                 }else {
                     if(letra.collidesWith(peter)){
                         ControlJuego.vidas--;
@@ -226,6 +211,7 @@ public class DodgeResponsibility extends EscenaBase implements SensorEventListen
         admEscenas.setEscena(TipoEscena.ESCENA_MENU);
         admEscenas.liberarEscenaDodge();
         ControlJuego.score = 0;
+        ControlJuego.vidas = 3;
     }
     public void onFinishedLevel(){
 

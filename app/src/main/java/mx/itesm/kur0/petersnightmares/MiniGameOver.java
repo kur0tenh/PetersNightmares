@@ -29,9 +29,10 @@ public class MiniGameOver extends EscenaBase {
     // barra de tiempo
     private Sprite barraTiempo;
     private Sprite spriteFondo;
-    private AnimatedSprite vidas;
+    //private AnimatedSprite vidas;
     private Text t;
     private Text V;
+    private Text P;
     private Font fuente;
 
 
@@ -59,7 +60,7 @@ public class MiniGameOver extends EscenaBase {
         cargarFuente();
         cargarTexto();
     }
-    private int dx = 5;
+    private int dx = 15;
     private void manejadorDeTiempo(){
         barraTiempo = new Sprite(ControlJuego.ANCHO_CAMARA/2,(ControlJuego.ALTO_CAMARA)+20,admRecursos.regionBarraTiempoMini,admRecursos.vbom) {
             @Override
@@ -97,6 +98,10 @@ public class MiniGameOver extends EscenaBase {
                     admEscenas.liberarEscenaMiniGameOver();
                     admEscenas.setEscena(m);
 
+                }else{
+                    if(ControlJuego.vidas<=0){
+                        P.setText("Press back");
+                    }
                 }
 
             }
@@ -113,6 +118,7 @@ public class MiniGameOver extends EscenaBase {
         admEscenas.setEscena(TipoEscena.ESCENA_MENU);
         admEscenas.liberarEscenaMiniGameOver();
         ControlJuego.score = 0;
+        ControlJuego.vidas = 3;
     }
     @Override
     public void liberarEscena() {
@@ -133,8 +139,10 @@ public class MiniGameOver extends EscenaBase {
     private void cargarTexto(){
 
         t = new Text(625,450,fuente," " + ControlJuego.score, 100, admRecursos.vbom);
-        V = new Text(625,300,fuente,"Vidas: " + ControlJuego.vidas, 100, admRecursos.vbom);
+        V = new Text(625,300,fuente,"Lifes: " + ControlJuego.vidas, 100, admRecursos.vbom);
+        P = new Text(625,200,fuente," ", 100, admRecursos.vbom);
         attachChild(t);
         attachChild(V);
+        attachChild(P);
     }
 }

@@ -105,7 +105,7 @@ public class RunIfUnreal extends EscenaBase
                 if(disparoEnemigo.getX()>= 1200){
 
                     disparoEnemigo.detachSelf();
-                    ControlJuego.score += ControlJuego.score += (int)Math.abs(Math.random() * 10);
+                    ControlJuego.score += (int)Math.abs(Math.random() * 10);
                 }
                 else{
                     if (disparoEnemigo.collidesWith(peter) ) {
@@ -268,7 +268,7 @@ public class RunIfUnreal extends EscenaBase
         return super.onSceneTouchEvent(pSceneTouchEvent);
     }
     // Constante para mover la barra de tiempo
-    private int dx = 1;
+    private int dx = 2;
     // Este metodo controla la barra de tiempo
     private void manejadorDeTiempo(){
         barraTiempo = new Sprite(ControlJuego.ANCHO_CAMARA/2,(ControlJuego.ALTO_CAMARA)-20,admRecursos.regionBarraTiempoRun,admRecursos.vbom) {
@@ -301,6 +301,7 @@ public class RunIfUnreal extends EscenaBase
         admEscenas.setEscena(TipoEscena.ESCENA_MENU);
         admEscenas.liberarEscenaJuego();
         ControlJuego.score = 0;
+        ControlJuego.vidas = 3;
     }
     public void onFinishedLevel(){
 
