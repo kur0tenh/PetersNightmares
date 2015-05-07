@@ -95,13 +95,13 @@ public class MiniGameOver extends EscenaBase {
                                 }
                             }
                         }
-                        m = foo.get(var);
-                        admEscenas.liberarEscenaMiniGameOver();
-                        admEscenas.setEscena(m);
                     }
                 }
             }
         }
+        m = foo.get(var);
+        admEscenas.liberarEscenaMiniGameOver();
+        admEscenas.setEscena(m);
     }
 
     @Override

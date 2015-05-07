@@ -7,6 +7,7 @@ package com.example.kur0.petersnightmares;
  */
 
 public enum TipoEscena {
+
     //inicializacion
     ESCENA_SPLASH,
     ESCENA_MENU,
@@ -20,4 +21,5 @@ public enum TipoEscena {
     ESCENA_OPCIONES,
     ESCENA_FISICA,
     ESCENA_SCORES
+
 }

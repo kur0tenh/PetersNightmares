@@ -11,6 +11,7 @@ import org.andengine.engine.Engine;
  */
 public class AdministradorEscenas
 {
+    private TipoEscena lastLevel;
     // Instancia única
     private static final AdministradorEscenas INSTANCE =
             new AdministradorEscenas();
@@ -62,8 +63,10 @@ public class AdministradorEscenas
 
     /**
      * Cambia a la escena especificada en el parámetro
-     * @param nuevoTipo la nueva escena que se quiere mostrar
+     *
+     *
      */
+
     public void setEscena(TipoEscena nuevoTipo) {
         switch (nuevoTipo) {
             case ESCENA_SPLASH:

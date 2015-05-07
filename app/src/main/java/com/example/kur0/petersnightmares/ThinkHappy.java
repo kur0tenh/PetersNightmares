@@ -1,33 +1,12 @@
 package com.example.kur0.petersnightmares;
 
-import org.andengine.audio.music.Music;
-import org.andengine.audio.music.MusicFactory;
-import org.andengine.audio.sound.Sound;
-import org.andengine.audio.sound.SoundFactory;
-import android.util.Log;
 
-import org.andengine.entity.modifier.DelayModifier;
-import org.andengine.entity.modifier.RotationByModifier;
+
 import org.andengine.entity.modifier.RotationModifier;
-import org.andengine.entity.sprite.ButtonSprite;
 import org.andengine.entity.sprite.Sprite;
-import org.andengine.engine.camera.Camera;
-import org.andengine.entity.IEntity;
-import org.andengine.entity.modifier.JumpModifier;
-import org.andengine.entity.modifier.ParallelEntityModifier;
-import org.andengine.entity.scene.background.AutoParallaxBackground;
-import org.andengine.entity.scene.background.ParallaxBackground;
-import org.andengine.entity.sprite.AnimatedSprite;
-import org.andengine.entity.sprite.Sprite;
-import org.andengine.entity.sprite.TiledSprite;
 import org.andengine.input.touch.TouchEvent;
 import org.andengine.opengl.texture.region.TiledTextureRegion;
-import org.andengine.opengl.util.GLState;
-
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Random;
 
 /**
  * Created by kur0.
@@ -131,8 +110,6 @@ public class ThinkHappy extends EscenaBase {
                 // Prueba los límites de la pantalla
                 if (px<=-ControlJuego.ANCHO_CAMARA/2||finalizar()) {
                     //Cambiara a otra escena cuando existan los demas minigames
-
-
                     onFinishedLevel();
                 }
 
@@ -143,9 +120,7 @@ public class ThinkHappy extends EscenaBase {
     public void onFinishedLevel(){
         admRecursos.camara.setHUD(null);
         admEscenas.crearEscenaMiniGameOver();
-
         admEscenas.setEscena(TipoEscena.ESCENA_MINIGAMEOVER);
-        MiniGameOver.lastLevel = "Think";
         admEscenas.liberarEscenaJuegoThink();
         ControlJuego.score = ControlJuego.score+100;
 

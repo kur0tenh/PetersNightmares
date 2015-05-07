@@ -28,6 +28,7 @@ import java.io.IOException;
  */
 public class AdministradorRecursos
 {
+
     // Instancia única de la clase
     private static final AdministradorRecursos INSTANCE = new AdministradorRecursos();
 
