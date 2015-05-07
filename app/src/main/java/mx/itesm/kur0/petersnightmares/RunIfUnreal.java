@@ -270,7 +270,7 @@ public class RunIfUnreal extends EscenaBase
     private int dx = 1;
     // Este metodo controla la barra de tiempo
     private void manejadorDeTiempo(){
-        barraTiempo = new Sprite(ControlJuego.ANCHO_CAMARA/2,(ControlJuego.ALTO_CAMARA)-20,admRecursos.regionBarraTiempo,admRecursos.vbom) {
+        barraTiempo = new Sprite(ControlJuego.ANCHO_CAMARA/2,(ControlJuego.ALTO_CAMARA)-20,admRecursos.regionBarraTiempoRun,admRecursos.vbom) {
             @Override
             protected void onManagedUpdate(float pSecondsElapsed) {
                 super.onManagedUpdate(pSecondsElapsed);

@@ -67,8 +67,7 @@ public class AdministradorRecursos
     public ITextureRegion regionBtnRegresar;
 
     //-------------------------Universal para la barra de tiempo----------------------------
-    private AssetBitmapTexture texturaBarraTiempo;
-    public TextureRegion regionBarraTiempo;
+
     //--------------------------------------------------------------------------------------
 
     //-------------------------Escena juego Run if it's unreal-----------------------------
@@ -90,10 +89,14 @@ public class AdministradorRecursos
     // Disparo del enemigo
     private BuildableBitmapTextureAtlas texturaDisparoEnemigo;
     public TiledTextureRegion regionDisparoEnemigo;
+    private AssetBitmapTexture texturaBarraTiempoRun;
+    public TextureRegion regionBarraTiempoRun;
 
     //----------------------Escena Juego Think Happy Thoughts------------
     private BuildableBitmapTextureAtlas texturaImagenPuzzle;
     public TiledTextureRegion regionImagenPuzzle;
+    private AssetBitmapTexture texturaBarraTiempoThink;
+    public TextureRegion regionBarraTiempoThink;
 
     //----------------------Escena Juego Dodge your responsibility-------
     // Fondo
@@ -108,6 +111,8 @@ public class AdministradorRecursos
     // Enemigo
     private BuildableBitmapTextureAtlas texturaImagenPuntero;
     public TiledTextureRegion regionImagenPuntero;
+    private AssetBitmapTexture texturaBarraTiempoDodge;
+    public TextureRegion regionBarraTiempoDodge;
 
     //----------------------Escena Opciones-------------------------------
 
@@ -124,6 +129,8 @@ public class AdministradorRecursos
     //Vidas
     private BuildableBitmapTextureAtlas texturaVidas;
     public TiledTextureRegion regionVidas;
+    private AssetBitmapTexture texturaBarraTiempoMini;
+    public TextureRegion regionBarraTiempoMini;
 
 
     // Método accesor de la instancia
@@ -194,9 +201,9 @@ public class AdministradorRecursos
             Log.d("cargarRecursosDodge", "No se puede cargar el fondo");
         }
         try{
-            texturaBarraTiempo = new AssetBitmapTexture(actividadJuego.getTextureManager(),actividadJuego.getAssets(), "DodgeResponsibility/BarraTiempo.png");
-            regionBarraTiempo = TextureRegionFactory.extractFromTexture(texturaBarraTiempo);
-            texturaBarraTiempo.load();
+            texturaBarraTiempoDodge = new AssetBitmapTexture(actividadJuego.getTextureManager(),actividadJuego.getAssets(), "DodgeResponsibility/BarraTiempo.png");
+            regionBarraTiempoDodge = TextureRegionFactory.extractFromTexture(texturaBarraTiempoDodge);
+            texturaBarraTiempoDodge.load();
         }
         catch (IOException e){
             Log.d("cargarRecursosAcercaDe", "No se puede cargar la barra de tiempo");
@@ -232,8 +239,8 @@ public class AdministradorRecursos
         texturaImagenPuntero.load();
     }
     public void liberarRecursosDodge() {
-        texturaBarraTiempo.unload();
-        regionBarraTiempo = null;
+        texturaBarraTiempoDodge.unload();
+        regionBarraTiempoDodge = null;
 
         texturaImagenPuntero.unload();
         regionImagenPuntero = null;
@@ -362,9 +369,9 @@ public class AdministradorRecursos
 
         // Carga la barra de tiempo
         try{
-            texturaBarraTiempo = new AssetBitmapTexture(actividadJuego.getTextureManager(),actividadJuego.getAssets(), "RunIfUnreal/BarraTiempo.png");
-            regionBarraTiempo = TextureRegionFactory.extractFromTexture(texturaBarraTiempo);
-            texturaBarraTiempo.load();
+            texturaBarraTiempoRun = new AssetBitmapTexture(actividadJuego.getTextureManager(),actividadJuego.getAssets(), "RunIfUnreal/BarraTiempo.png");
+            regionBarraTiempoRun = TextureRegionFactory.extractFromTexture(texturaBarraTiempoRun);
+            texturaBarraTiempoRun.load();
         }
         catch (IOException e){
             Log.d("cargarRecursosAcercaDe", "No se puede cargar la barra de tiempo");
@@ -389,8 +396,8 @@ public class AdministradorRecursos
         texturaDisparoEnemigo.unload();
         regionDisparoEnemigo = null;
         // Barra de tiempo
-        texturaBarraTiempo.unload();
-        regionBarraTiempo = null;
+        texturaBarraTiempoRun.unload();
+        regionBarraTiempoRun = null;
     }
     // Carga recursos para el segundo juego
     public void cargarRecursosJuegoThink(){
@@ -406,9 +413,9 @@ public class AdministradorRecursos
         texturaImagenPuzzle.load();
         // Carga la barra de tiempo
         try{
-            texturaBarraTiempo = new AssetBitmapTexture(actividadJuego.getTextureManager(),actividadJuego.getAssets(), "ThinkHappy/BarraTiempo.png");
-            regionBarraTiempo = TextureRegionFactory.extractFromTexture(texturaBarraTiempo);
-            texturaBarraTiempo.load();
+            texturaBarraTiempoThink = new AssetBitmapTexture(actividadJuego.getTextureManager(),actividadJuego.getAssets(), "ThinkHappy/BarraTiempo.png");
+            regionBarraTiempoThink = TextureRegionFactory.extractFromTexture(texturaBarraTiempoThink);
+            texturaBarraTiempoThink.load();
         }
         catch (IOException e){
             Log.d("cargarRecursosAcercaDe", "No se puede cargar la barra de tiempo");
@@ -419,8 +426,8 @@ public class AdministradorRecursos
         texturaImagenPuzzle.unload();
         regionImagenPuzzle = null;
         // Barra de tiempo
-        texturaBarraTiempo.unload();
-        regionBarraTiempo = null;
+        texturaBarraTiempoThink.unload();
+        regionBarraTiempoThink = null;
     }
     public void cargarRecursosOpciones() {
         try {
@@ -460,9 +467,9 @@ public class AdministradorRecursos
             Log.d("onCreateResources","No se puede cargar la imagen para el Sprite de vidas");
         }
         try{
-            texturaBarraTiempo = new AssetBitmapTexture(actividadJuego.getTextureManager(),actividadJuego.getAssets(), "MiniGameOver/BarraTiempo.png");
-            regionBarraTiempo = TextureRegionFactory.extractFromTexture(texturaBarraTiempo);
-            texturaBarraTiempo.load();
+            texturaBarraTiempoMini = new AssetBitmapTexture(actividadJuego.getTextureManager(),actividadJuego.getAssets(), "MiniGameOver/BarraTiempo.png");
+            regionBarraTiempoMini = TextureRegionFactory.extractFromTexture(texturaBarraTiempoMini);
+            texturaBarraTiempoMini.load();
         }
         catch (IOException e){
             Log.d("cargarRecursosAcercaDe", "No se puede cargar la barra de tiempo");
@@ -472,8 +479,8 @@ public class AdministradorRecursos
         // Fondo
         texturaMiniGameOver.unload();
         regionMiniGameOver = null;
-        texturaBarraTiempo.unload();
-        regionBarraTiempo = null;
+        texturaBarraTiempoMini.unload();
+        regionBarraTiempoMini = null;
         texturaVidas.unload();
         regionVidas = null;
     }

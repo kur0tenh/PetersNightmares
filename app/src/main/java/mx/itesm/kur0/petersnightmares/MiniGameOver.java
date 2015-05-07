@@ -60,7 +60,7 @@ public class MiniGameOver extends EscenaBase {
     }
     private int dx = 5;
     private void manejadorDeTiempo(){
-        barraTiempo = new Sprite(ControlJuego.ANCHO_CAMARA/2,(ControlJuego.ALTO_CAMARA)-20,admRecursos.regionBarraTiempo,admRecursos.vbom) {
+        barraTiempo = new Sprite(ControlJuego.ANCHO_CAMARA/2,(ControlJuego.ALTO_CAMARA)-20,admRecursos.regionBarraTiempoMini,admRecursos.vbom) {
             @Override
             protected void onManagedUpdate(float pSecondsElapsed) {
                 super.onManagedUpdate(pSecondsElapsed);
@@ -131,7 +131,7 @@ public class MiniGameOver extends EscenaBase {
 
     private void cargarTexto(){
 
-        t = new Text(625,450,fuente,"Score: " + ControlJuego.score, 100, admRecursos.vbom);
+        t = new Text(625,450,fuente," " + ControlJuego.score, 100, admRecursos.vbom);
         attachChild(t);
     }
 }

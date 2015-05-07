@@ -97,7 +97,7 @@ public class ThinkHappy extends EscenaBase {
     // Este metodo controla la barra de tiempo
 
     private void manejadorDeTiempo(){
-        barraTiempo = new Sprite(ControlJuego.ANCHO_CAMARA/2,(ControlJuego.ALTO_CAMARA)-20,admRecursos.regionBarraTiempo,admRecursos.vbom) {
+        barraTiempo = new Sprite(ControlJuego.ANCHO_CAMARA/2,(ControlJuego.ALTO_CAMARA)-20,admRecursos.regionBarraTiempoThink,admRecursos.vbom) {
             @Override
             protected void onManagedUpdate(float pSecondsElapsed) {
 
